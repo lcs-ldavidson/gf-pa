@@ -42,9 +42,9 @@ public class Raku extends Actor
 
     void enteredStorm()
     {
-        if ((getX() <= 10 || getX() >= 690 || getY() >= 760 || getY() <= 20) && timeAlive % 3 == 0) 
+        if ((getX() <= 10 || getX() >= 690 || getY() >= 740 || getY() <= 70) && timeAlive % 15 == 0) 
         {
-            takeDamage(1);
+            takeDamage(Greenfoot.getRandomNumber(6) + 1);
         }
     }
 
@@ -91,13 +91,13 @@ public class Raku extends Actor
         if (Greenfoot.isKeyDown("right")) 
         {
             setLocation(getX() + 4, getY());
-            setRotation(30);
+            setRotation(20);
         }
 
         else if (Greenfoot.isKeyDown("left")) 
         {
             setLocation(getX() - 4, getY());
-            setRotation(-30);
+            setRotation(-20);
         }   
 
         else

@@ -21,7 +21,7 @@ public class Paluno extends World
         super(700, 800, 1); 
         prepare();
         timeElapsed = 19;
-        setPaintOrder(HealthShow.class, Interface.class, Cloud.class, Particle.class, Raku.class, Terrain.class);
+        setPaintOrder(HealthShow.class, Interface.class, Cloud.class, Particle.class, Monster.class, Raku.class, Terrain.class);
     }
 
     public void act()
@@ -29,6 +29,15 @@ public class Paluno extends World
         timeElapsed = timeElapsed + 1;
         createTerrain();
         createParticle();
+        spawnEnemy();
+    }
+    
+    void spawnEnemy()
+    {
+        if (Greenfoot.getRandomNumber(100) < 2)
+        {
+         addObject(new Monster(), Greenfoot.getRandomNumber(700), 1);   
+        }
     }
 
     void createTerrain()
