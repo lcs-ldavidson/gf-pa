@@ -8,12 +8,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Particle extends Actor
 {
-    /**
-     * Act - do whatever the Particle wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
+    int speed;
+    int wiggle;
+
+    public Particle()
+    {
+        speed = Greenfoot.getRandomNumber(4) + 8;
+        wiggle = Greenfoot.getRandomNumber(8) + 2;
+    }
+
     public void act() 
     {
-        // Add your action code here.
+        setLocation(getX() + Greenfoot.getRandomNumber(wiggle) - (wiggle / 2), getY() + speed); 
+
+        if (getY() == 799)
+        {
+            getWorld().removeObject(this);   
+        }
+
     }    
+    
 }
+
