@@ -34,7 +34,7 @@ public class Paluno extends World
     
     void spawnEnemy()
     {
-        if (Greenfoot.getRandomNumber(100) < 2)
+        if (Greenfoot.getRandomNumber(100) < 1)
         {
          addObject(new Monster(), Greenfoot.getRandomNumber(700), 1);   
         }

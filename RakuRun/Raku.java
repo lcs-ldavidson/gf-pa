@@ -15,6 +15,7 @@ public class Raku extends Actor
     GreenfootImage run4;
     int timeAlive;
     int health;
+    int gold;
 
     public Raku()
     {
@@ -25,6 +26,7 @@ public class Raku extends Actor
         timeAlive = 0;
         setImage(run1);
         health = 100;
+        gold = 0;
     }
 
     public void act() 
@@ -33,11 +35,26 @@ public class Raku extends Actor
         control();
         showHealth();
         timeAlive = timeAlive + 1;
+        hitByEnemy();
+        showGold();
     } 
+
+    void hitByEnemy()
+    {
+        if (isTouching(Monster.class) && timeAlive % 15 == 0)
+        {
+            takeDamage(Greenfoot.getRandomNumber(10) + 1);
+        }
+    }
 
     void showHealth()
     {
         getWorld().showText("HP: " + health + "/100", 585, 50);
+    }
+    
+    void showGold()
+    {
+        getWorld().showText("Gold: " + gold, 110, 45);
     }
 
     void enteredStorm()
@@ -53,7 +70,7 @@ public class Raku extends Actor
         health = health - amount;
         String damage  = "-" + amount;
         getWorld().addObject(new HealthShow("" + amount), getX() + 30, getY() - 30);
-        
+
     }
 
     void control()
@@ -90,13 +107,13 @@ public class Raku extends Actor
 
         if (Greenfoot.isKeyDown("right")) 
         {
-            setLocation(getX() + 4, getY());
+            setLocation(getX() + 6, getY());
             setRotation(20);
         }
 
         else if (Greenfoot.isKeyDown("left")) 
         {
-            setLocation(getX() - 4, getY());
+            setLocation(getX() - 6, getY());
             setRotation(-20);
         }   
 
