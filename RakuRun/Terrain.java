@@ -14,6 +14,12 @@ public class Terrain extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        setLocation(getX(), getY() + 5); 
+
+        if (getY() == 799)
+        {
+            getWorld().removeObject(this);   
+        }
+
     }    
 }
