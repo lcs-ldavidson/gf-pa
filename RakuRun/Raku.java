@@ -13,45 +13,102 @@ public class Raku extends Actor
     GreenfootImage run2;
     GreenfootImage run3;
     GreenfootImage run4;
+    GreenfootImage corpse;
+    int launchTimer;
+    boolean canShoot;
     int timeAlive;
     int health;
     int gold;
+    int vulnerability;
 
     public Raku()
     {
-        run1 = new GreenfootImage("raku1.PNG");
-        run2 = new GreenfootImage("raku3.PNG");
-        run3 = new GreenfootImage("raku2.PNG");
-        run4 = new GreenfootImage("raku3.PNG");
+        run1 = new GreenfootImage("raku1.png");
+        run2 = new GreenfootImage("raku3.png");
+        run3 = new GreenfootImage("raku2.png");
+        run4 = new GreenfootImage("raku3.png");
+        corpse = new GreenfootImage("deadRaku.png");
         timeAlive = 0;
         setImage(run1);
         health = 100;
         gold = 0;
+        canShoot = true;
+        vulnerability = 255;
+
     }
 
     public void act() 
     {
-        enteredStorm();
-        control();
-        showHealth();
-        timeAlive = timeAlive + 1;
-        hitByEnemy();
-        showGold();
-        collectGold(Greenfoot.getRandomNumber(100) + 1);
-        drinkPotion(Greenfoot.getRandomNumber(12) + 1);
-        
-        if (health <= 0)
-        {
-         Greenfoot.stop();   
+        if (getImage() != corpse) {
+
+            enteredStorm();
+            control();
+            showHealth();
+            timeAlive = timeAlive + 1;
+            if (vulnerability >= 255) {
+                hitByEnemy();
+            }
+            showGold();
+            collectGold(Greenfoot.getRandomNumber(100) + 1);
+            drinkPotion(Greenfoot.getRandomNumber(12) + 1);
+            checkShoot();
+
+            if (launchTimer <= 255) {
+                launchTimer += 1;
+            }
+
+            if (launchTimer == 15) {
+                setImage(run1);
+            }
         }
+
+        if (vulnerability <= 255) {
+            vulnerability += 3;
+        }
+
+        if (vulnerability >= 256) {
+            vulnerability = 255;
+        }
+
+        getImage().setTransparency(vulnerability);
+
+        die();
 
         if (health >= 101) {
             health = 100;
         }
+
     }
 
-    void launchFireball (int direction) {
-        
+    void checkShoot() {
+        if (Greenfoot.isKeyDown("w")) {
+            launchFireball("forward");   
+        } else if (Greenfoot.isKeyDown("d")) {
+            launchFireball("right");   
+        } else if (Greenfoot.isKeyDown("a")) {
+            launchFireball("left");
+        }
+    }
+
+    void launchFireball (String shotDirection) {
+        if (launchTimer >= 254) {
+
+            if (shotDirection == "forward") {
+                setImage("launchForward.png");
+                getWorld().addObject(new Fireball(getRotation() - 90), getX() + 20, getY() - 50);
+            } else if (shotDirection == "right") {
+                setImage("launchRight.png");
+                getWorld().addObject(new Fireball(getRotation()), getX() + 50, getY());
+            } else if (shotDirection == "left") {
+                setImage("launchLeft.png");
+                getWorld().addObject(new Fireball(getRotation() - 180), getX() - 50, getY());
+            }
+
+            launchTimer = 0;
+
+        }
+
+        canShoot = false;
     }
 
     void drinkPotion(int healthRegained) {
@@ -74,7 +131,7 @@ public class Raku extends Actor
     {
         if (isTouching(Monster.class) && timeAlive % 15 == 0)
         {
-            takeDamage(Greenfoot.getRandomNumber(10) + 1, false);
+            takeDamage(Greenfoot.getRandomNumber(20) + 1, false);
         }
     }
 
@@ -109,6 +166,9 @@ public class Raku extends Actor
         String damage  = "-" + amount;
         getWorld().addObject(new HealthShow("" + amount, heal), getX() + 30, getY() - 30);
 
+        if (heal == false) {
+            vulnerability = 100;
+        }
     }
 
     void control()
@@ -189,5 +249,20 @@ public class Raku extends Actor
 
         }
 
+    }
+
+    void die() {
+        if (health <= 0)
+        {
+            setImage(corpse);
+        }   
+
+        if (getImage() == corpse) {
+            setLocation(getX(), getY() + 5);
+            if (isAtEdge()) {
+                getWorld().removeObject(this);   
+
+            }
+        }
     }
 }

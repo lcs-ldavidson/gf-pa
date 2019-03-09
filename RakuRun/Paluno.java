@@ -23,7 +23,7 @@ public class Paluno extends World
         timeElapsed = 19;
         Greenfoot.setSpeed(75);
         setPaintOrder(HealthShow.class, GoldShow.class, Interface.class, Cloud.class, 
-        Particle.class, Monster.class, Raku.class, Potion.class, Gold.class, Terrain.class);
+        Particle.class, Monster.class, Raku.class, Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
 
     public void act()
@@ -39,7 +39,7 @@ public class Paluno extends World
     void createGold() {
         if (Greenfoot.getRandomNumber(100) < 4)
         {
-         addObject(new Gold(), Greenfoot.getRandomNumber(700), 1);   
+         addObject(new Gold(), Greenfoot.getRandomNumber(600) + 50, 1);   
         }
     }
     
