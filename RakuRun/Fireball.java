@@ -26,21 +26,27 @@ public class Fireball extends Actor
 
     public void act() 
     {
-        move(13);
+        removeTouching(Monster.class);
 
-        if (timeElapsed % 3 == 0) {
+        if (this != null) {
 
-            if (getImage() == fire1) {
-                setImage(fire2);
-            } else {
-                setImage(fire1);   
+            if (getY() <= 5 || getY() >= 795 || getX() <= 5 || getX() >= 695) {
+                getWorld().removeObject(this);
             }
-        }
 
-        if (isAtEdge()) {
-            getWorld().removeObject(this);
-        }
+            move(13);
 
-        timeElapsed += 1;
-    }    
+            if (timeElapsed % 3 == 0) {
+
+                if (getImage() == fire1) {
+                    setImage(fire2);
+                } else {
+                    setImage(fire1);   
+                }
+            }
+
+            
+            timeElapsed += 1;
+        }    
+    }
 }

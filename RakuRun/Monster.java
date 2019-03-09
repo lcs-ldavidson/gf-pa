@@ -36,7 +36,7 @@ public class Monster extends Actor
         timeElapsed += 1;
         movement();
         animate();
-
+        
         if (getY() >= 799)
         {
             getWorld().removeObject(this);
@@ -63,4 +63,5 @@ public class Monster extends Actor
         }
     }
 
+    
 }
