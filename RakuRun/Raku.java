@@ -37,13 +37,17 @@ public class Raku extends Actor
         timeAlive = timeAlive + 1;
         hitByEnemy();
         showGold();
+
+        if (health >= 101) {
+            health = 100;
+        }
     } 
 
     void hitByEnemy()
     {
         if (isTouching(Monster.class) && timeAlive % 15 == 0)
         {
-            takeDamage(Greenfoot.getRandomNumber(10) + 1);
+            takeDamage(Greenfoot.getRandomNumber(10) + 1, false);
         }
     }
 
@@ -51,7 +55,7 @@ public class Raku extends Actor
     {
         getWorld().showText("HP: " + health + "/100", 585, 50);
     }
-    
+
     void showGold()
     {
         getWorld().showText("Gold: " + gold, 110, 45);
@@ -61,15 +65,22 @@ public class Raku extends Actor
     {
         if ((getX() <= 10 || getX() >= 690 || getY() >= 740 || getY() <= 70) && timeAlive % 15 == 0) 
         {
-            takeDamage(Greenfoot.getRandomNumber(6) + 1);
+            takeDamage(Greenfoot.getRandomNumber(6) + 1, false);
         }
     }
 
-    public void takeDamage (int amount)
+    public void takeDamage (int amount, boolean heal)
     {
-        health = health - amount;
+
+        if (heal == false) 
+        {
+            health = health - amount;
+        } else
+        {
+            health = health + amount;
+        }
         String damage  = "-" + amount;
-        getWorld().addObject(new HealthShow("" + amount), getX() + 30, getY() - 30);
+        getWorld().addObject(new HealthShow("" + amount, heal), getX() + 30, getY() - 30);
 
     }
 

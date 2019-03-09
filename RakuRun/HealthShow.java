@@ -11,18 +11,39 @@ public class HealthShow extends Actor
 
     int transparency;
     String damageText;
-    
-    public HealthShow(String damage)
+    boolean healRaku;
+
+    public HealthShow(String damage, Boolean heal)
     {
-        setImage(new GreenfootImage("-" + damage, 50, Color.RED, new Color(0, 0, 0, 0), Color.BLACK));
+
+        if (heal == false) {
+            setImage(new GreenfootImage("-" + damage, 50, Color.RED, new Color(0, 0, 0, 0), Color.BLACK));
+        }
+        else
+        {
+            setImage(new GreenfootImage("+" + damage, 50, Color.GREEN, new Color(0, 0, 0, 0), Color.BLACK));
+        }
+
         transparency = 150;
-        damageText = damage; 
+        damageText = damage;
+        healRaku = heal;
+
     }
 
     public void act() 
     {
-        transparency -= 1;
-        setImage(new GreenfootImage("-" + damageText, (transparency / 2), new Color(200, 0, 0, transparency), new Color(0, 0, 0, 0), new Color(200, 0, 0, transparency)));
+        if (healRaku == false)
+        {
+            transparency -= 1;
+            setImage(new GreenfootImage("-" + damageText, (transparency / 2), new Color(200, 0, 0, transparency), new Color(0, 0, 0, 0), Color.BLACK));
+        }
+        else
+        {
+            transparency -= 1;
+            setImage(new GreenfootImage("+" + damageText, (transparency / 2), new Color(0, 255, 0, transparency), new Color(0, 0, 0, 0), Color.BLACK));
+        }
+        
+        
         if (transparency <= 0)
         {
             getWorld().removeObject(this);
