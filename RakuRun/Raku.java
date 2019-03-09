@@ -37,11 +37,38 @@ public class Raku extends Actor
         timeAlive = timeAlive + 1;
         hitByEnemy();
         showGold();
+        collectGold(Greenfoot.getRandomNumber(100) + 1);
+        drinkPotion(Greenfoot.getRandomNumber(12) + 1);
+        
+        if (health <= 0)
+        {
+         Greenfoot.stop();   
+        }
 
         if (health >= 101) {
             health = 100;
         }
-    } 
+    }
+
+    void launchFireball (int direction) {
+        
+    }
+
+    void drinkPotion(int healthRegained) {
+        if (isTouching(Potion.class)) {
+            removeTouching(Potion.class);
+            health += healthRegained;
+            takeDamage(healthRegained, true);
+        }
+    }
+
+    void collectGold(int amount) {
+        if (isTouching(Gold.class)) {
+            removeTouching(Gold.class);
+            gold += amount;
+            getWorld().addObject(new GoldShow("" + amount), getX() + 30, getY() - 30);
+        }
+    }
 
     void hitByEnemy()
     {
