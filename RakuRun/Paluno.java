@@ -23,8 +23,8 @@ public class Paluno extends World
         prepare();
         timeElapsed = 19;
         Greenfoot.setSpeed(75);
-        setPaintOrder(readyFlare.class, fireSwirl.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, Cloud.class, 
-            Particle.class, Monster.class, Raku.class, Fireball.class, Potion.class, Gold.class, Terrain.class);
+        setPaintOrder(startCloud.class, readyFlare.class, fireSwirl.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, 
+         AtmosphereClouds.class, Cloud.class, Particle.class, Monster.class, Raku.class, Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
 
     public void act()
@@ -35,6 +35,7 @@ public class Paluno extends World
         spawnEnemy();
         createGold();
         createPotion();
+        createCloud();
         
     }
 
@@ -70,9 +71,17 @@ public class Paluno extends World
 
     void createParticle()
     {
-        if (timeElapsed % 2 == 0)
+        if (timeElapsed % 3 == 0)
         {
             addObject(new Particle(), Greenfoot.getRandomNumber(700), 0);
+        }
+    }
+    
+    void createCloud()
+    {
+        if (timeElapsed % 5 == 0)
+        {
+            addObject(new AtmosphereClouds(), Greenfoot.getRandomNumber(700), 0);
         }
     }
 
@@ -104,62 +113,133 @@ public class Paluno extends World
 
         addObject(raku1,350,650);
         
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),780);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),786);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),789);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),789);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),789);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),789);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
+        
         
         addObject(new fireGauge(), 350, 60);
         addObject(new fireSwirl(), 350, 60);

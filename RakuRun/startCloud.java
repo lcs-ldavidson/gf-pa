@@ -8,12 +8,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class startCloud extends Actor
 {
-    /**
-     * Act - do whatever the startCloud wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
+    int moveX;
+    int moveY;
+    int rotationSpeed;
+
+    public startCloud() {
+
+        moveX = Greenfoot.getRandomNumber(40) - 20;
+        moveY = Greenfoot.getRandomNumber(40) - 20;
+        rotationSpeed = Greenfoot.getRandomNumber(10) - 5;
+
+        setImage("darkCloud.png");
+        getImage().scale(400, 400);
+
+    }
+
     public void act() 
     {
-        // Add your action code here.
+        turn(rotationSpeed);
+        setLocation(getX() + moveX, getY() + moveY);
+
+        if (isAtEdge()) {
+            getWorld().removeObject(this);   
+        }
     }    
 }

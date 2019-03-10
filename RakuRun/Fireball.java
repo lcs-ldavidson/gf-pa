@@ -26,6 +26,8 @@ public class Fireball extends Actor
     public void act() 
     {
         removeTouching(Monster.class);
+        removeTouching(AtmosphereClouds.class);
+        removeTouching(Particle.class);
 
         if (getImage() == fire1) {
             getImage().scale(80, 40);
