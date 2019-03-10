@@ -27,6 +27,8 @@ public class AtmosphereClouds extends Actor
         {
             getWorld().removeObject(this);   
         }
+        
+        
 
     }    
     

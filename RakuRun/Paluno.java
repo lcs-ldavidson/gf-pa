@@ -23,8 +23,11 @@ public class Paluno extends World
         prepare();
         timeElapsed = 19;
         Greenfoot.setSpeed(75);
-        setPaintOrder(startCloud.class, readyFlare.class, fireSwirl.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, 
-         AtmosphereClouds.class, Cloud.class, Particle.class, Monster.class, Raku.class, Fireball.class, Potion.class, Gold.class, Terrain.class);
+        
+        setPaintOrder(RakuRun.class, startCloud.class, readyFlare.class, 
+        fireSwirl.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, 
+         AtmosphereClouds.class, Cloud.class, Particle.class, Monster.class, Raku.class, 
+         Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
 
     public void act()
@@ -47,7 +50,7 @@ public class Paluno extends World
     }
 
     void createPotion() {
-        if (Greenfoot.getRandomNumber(500) < 1)
+        if (Greenfoot.getRandomNumber(700) < 1)
         {
             addObject(new Potion(), Greenfoot.getRandomNumber(700), 1);   
         }
@@ -112,6 +115,8 @@ public class Paluno extends World
         addObject(Interface1,350,450);
 
         addObject(raku1,350,650);
+        
+        addObject(new RakuRun(), 350, 300);
         
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));

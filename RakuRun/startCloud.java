@@ -29,6 +29,11 @@ public class startCloud extends Actor
         turn(rotationSpeed);
         setLocation(getX() + moveX, getY() + moveY);
 
+        
+        
+        moveY += 1;
+        
+        
         if (isAtEdge()) {
             getWorld().removeObject(this);   
         }

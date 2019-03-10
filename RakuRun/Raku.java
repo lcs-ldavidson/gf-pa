@@ -10,18 +10,22 @@ public class Raku extends Actor
 {
 
     public Raku raku1;
-    
+
     GreenfootImage run1;
     GreenfootImage run2;
     GreenfootImage run3;
     GreenfootImage run4;
     GreenfootImage corpse;
+    GreenfootImage swinger;
     int launchTimer;
     boolean canShoot;
     int timeAlive;
     int health;
     int gold;
     int vulnerability;
+    int swingTimer;
+    boolean canSwing;
+    int teleportTimer;
 
     public Raku()
     {
@@ -31,12 +35,16 @@ public class Raku extends Actor
         run3 = new GreenfootImage("raku2.png");
         run4 = new GreenfootImage("raku3.png");
         corpse = new GreenfootImage("deadRaku.png");
+        swinger = new GreenfootImage("swordRaku.png");
         timeAlive = 0;
         setImage(run1);
         health = 100;
         gold = 0;
         canShoot = true;
         vulnerability = 255;
+        swingTimer = 0;
+        canSwing = true;
+        teleportTimer = 0;
 
     }
 
@@ -55,6 +63,7 @@ public class Raku extends Actor
             collectGold(Greenfoot.getRandomNumber(100) + 1);
             drinkPotion(Greenfoot.getRandomNumber(12) + 1);
             checkShoot();
+            teleport();
 
             if (launchTimer <= 255) {
                 launchTimer += 1;
@@ -79,6 +88,45 @@ public class Raku extends Actor
 
         if (health >= 101) {
             health = 100;
+        }
+
+        if (swingTimer <= 50) {
+            swingTimer += 1;   
+        }
+
+        if (swingTimer <= 9) {
+            turn(10);
+        }
+
+        if (swingTimer == 10) {
+            setRotation(0);
+            setImage(run1);
+        }
+
+        if (teleportTimer <= 300) {
+            teleportTimer += 1;   
+        }
+        
+    }
+
+    void teleport() {
+        if (teleportTimer >= 300 && Greenfoot.isKeyDown("space")) {
+
+            if (Greenfoot.isKeyDown("up")) {
+                setLocation(getX(), getY() - 300);
+            } else if (Greenfoot.isKeyDown("down")) {
+                setLocation(getX(), getY() + 300);
+            } else if (Greenfoot.isKeyDown("left")) {
+                setLocation(getX() - 200, getY());
+            } else if (Greenfoot.isKeyDown("right")) {
+                setLocation(getX() + 200, getY());
+            } else {
+
+            }
+            
+            vulnerability = 0;
+
+            teleportTimer = 0;
         }
 
     }
@@ -140,6 +188,7 @@ public class Raku extends Actor
 
     void showHealth()
     {
+
         getWorld().showText("HP: " + health + "/100", 585, 50);
     }
 
@@ -159,18 +208,21 @@ public class Raku extends Actor
     public void takeDamage (int amount, boolean heal)
     {
 
-        if (heal == false) 
-        {
-            health = health - amount;
-        } else
-        {
-            health = health + amount;
-        }
-        String damage  = "-" + amount;
-        getWorld().addObject(new HealthShow("" + amount, heal), getX() + 30, getY() - 30);
+        if (getImage() != corpse) {
 
-        if (heal == false) {
-            vulnerability = 100;
+            if (heal == false) 
+            {
+                health = health - amount;
+            } else
+            {
+                health = health + amount;
+            }
+            String damage  = "-" + amount;
+            getWorld().addObject(new HealthShow("" + amount, heal), getX() + 30, getY() - 30);
+
+            if (heal == false) {
+                vulnerability = 100;
+            }
         }
     }
 
@@ -209,18 +261,29 @@ public class Raku extends Actor
         if (Greenfoot.isKeyDown("right")) 
         {
             setLocation(getX() + 6, getY());
-            setRotation(20);
+            if (getImage() != swinger) {
+                setRotation(20);
+            }
         }
 
         else if (Greenfoot.isKeyDown("left")) 
         {
             setLocation(getX() - 6, getY());
-            setRotation(-20);
+            if (getImage() != swinger) {
+                setRotation(-20);
+            }
         }   
 
         else
         {
-            setRotation(0);
+
+            if (getImage() != swinger) {
+                setRotation(0);
+            }
+        }
+
+        if (Greenfoot.isKeyDown("s")) {
+            swingSword();
         }
 
     }
@@ -255,9 +318,7 @@ public class Raku extends Actor
     }
 
     void die() {
-        
-        
-        
+
         if (health <= 0)
         {
             setImage(corpse);
@@ -272,10 +333,20 @@ public class Raku extends Actor
             }
         }
     }
-    
+
     public int currentLaunchTimer() {
         return launchTimer;
     }
-    
-    
+
+    void swingSword() {
+        if (swingTimer >= 50) {
+
+            setImage(swinger);
+            setRotation(-45);
+
+            canSwing = false;
+            swingTimer = 0;
+        }
+    }
+
 }
