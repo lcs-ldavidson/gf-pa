@@ -10,6 +10,7 @@ public class Paluno extends World
 {
 
     int timeElapsed;
+    public Raku raku1 = new Raku();
 
     /**
      * Constructor for objects of class MyWorld.
@@ -23,7 +24,7 @@ public class Paluno extends World
         timeElapsed = 19;
         Greenfoot.setSpeed(75);
         setPaintOrder(HealthShow.class, GoldShow.class, Interface.class, Cloud.class, 
-        Particle.class, Monster.class, Raku.class, Fireball.class, Potion.class, Gold.class, Terrain.class);
+            Particle.class, Monster.class, Raku.class, Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
 
     public void act()
@@ -34,27 +35,28 @@ public class Paluno extends World
         spawnEnemy();
         createGold();
         createPotion();
+        
     }
-    
+
     void createGold() {
         if (Greenfoot.getRandomNumber(100) < 4)
         {
-         addObject(new Gold(), Greenfoot.getRandomNumber(600) + 50, 1);   
+            addObject(new Gold(), Greenfoot.getRandomNumber(600) + 50, 1);   
         }
     }
-    
+
     void createPotion() {
         if (Greenfoot.getRandomNumber(500) < 1)
         {
-         addObject(new Potion(), Greenfoot.getRandomNumber(700), 1);   
+            addObject(new Potion(), Greenfoot.getRandomNumber(700), 1);   
         }
     }
-    
+
     void spawnEnemy()
     {
-        if (Greenfoot.getRandomNumber(100) < 2)
+        if (Greenfoot.getRandomNumber(100) < 4)
         {
-         addObject(new Monster(), Greenfoot.getRandomNumber(700), 1);   
+            addObject(new Monster(), Greenfoot.getRandomNumber(700), 1);   
         }
     }
 
@@ -73,10 +75,10 @@ public class Paluno extends World
             addObject(new Particle(), Greenfoot.getRandomNumber(700), 0);
         }
     }
-    
+
     public int getTimeElapsed()
     {
-       return timeElapsed; 
+        return timeElapsed; 
     }
 
     private void prepare()
@@ -99,8 +101,8 @@ public class Paluno extends World
         addObject(terrain8,346,785);
         Interface Interface1 = new Interface();
         addObject(Interface1,350,450);
-        Raku raku = new Raku();
-        addObject(raku,350,650);
+
+        addObject(raku1,350,650);
         Particle particle = new Particle();
         addObject(particle,146,170);
         Particle particle3 = new Particle();
@@ -171,7 +173,14 @@ public class Paluno extends World
         addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-        
-       
+
+    }
+
+    public int rakuX() {
+        return raku1.getX();
+    }
+
+    public int rakuY() {
+        return raku1.getY();
     }
 }

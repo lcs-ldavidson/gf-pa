@@ -15,7 +15,6 @@ public class Fireball extends Actor
 
     public Fireball(int direction) {
         setRotation(direction);
-
         fire1 = new GreenfootImage("fireball1.PNG");
         fire2 = new GreenfootImage("fireball2.PNG");
 

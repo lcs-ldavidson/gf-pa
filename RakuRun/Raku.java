@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Raku extends Actor
 {
 
+    public Raku raku1;
+    
     GreenfootImage run1;
     GreenfootImage run2;
     GreenfootImage run3;
@@ -23,6 +25,7 @@ public class Raku extends Actor
 
     public Raku()
     {
+        raku1 = this;
         run1 = new GreenfootImage("raku1.png");
         run2 = new GreenfootImage("raku3.png");
         run3 = new GreenfootImage("raku2.png");
@@ -252,6 +255,9 @@ public class Raku extends Actor
     }
 
     void die() {
+        
+        
+        
         if (health <= 0)
         {
             setImage(corpse);
@@ -259,10 +265,19 @@ public class Raku extends Actor
 
         if (getImage() == corpse) {
             setLocation(getX(), getY() + 5);
+            health = 0;
             if (isAtEdge()) {
                 getWorld().removeObject(this);   
 
             }
         }
+    }
+    
+    public int getRakuX() {
+       return getX(); 
+    }
+    
+    public int getRakuY() {
+       return getY(); 
     }
 }

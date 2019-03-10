@@ -11,6 +11,8 @@ public class Monster extends Actor
 
     GreenfootImage monster1;
     GreenfootImage monster2;
+    int size;
+    Paluno paluno;
 
     int timeElapsed;
     int speed;
@@ -23,20 +25,32 @@ public class Monster extends Actor
     public Monster()
     {
         timeElapsed = 0;
+        
+        
 
+        
         monster1 = new GreenfootImage("monster1.PNG");
         monster2 = new GreenfootImage("monster2.PNG");
         setImage(monster1);
+        size = Greenfoot.getRandomNumber(40) + 70;
 
         speed = Greenfoot.getRandomNumber(7) + 5;
     }
 
+
     public void act() 
     {
+        
+        paluno = (Paluno) getWorld();
+        
         timeElapsed += 1;
         movement();
         animate();
-        
+
+        getImage().scale(size, size + 10);
+
+        turnTowards(paluno.raku1.getX(), paluno.raku1.getY());
+
         if (getY() >= 799)
         {
             getWorld().removeObject(this);
@@ -63,5 +77,4 @@ public class Monster extends Actor
         }
     }
 
-    
 }
