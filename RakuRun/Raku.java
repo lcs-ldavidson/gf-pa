@@ -267,17 +267,15 @@ public class Raku extends Actor
             setLocation(getX(), getY() + 5);
             health = 0;
             if (isAtEdge()) {
-                getWorld().removeObject(this);   
+                Greenfoot.stop();   
 
             }
         }
     }
     
-    public int getRakuX() {
-       return getX(); 
+    public int currentLaunchTimer() {
+        return launchTimer;
     }
     
-    public int getRakuY() {
-       return getY(); 
-    }
+    
 }

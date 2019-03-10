@@ -27,6 +27,12 @@ public class Fireball extends Actor
     {
         removeTouching(Monster.class);
 
+        if (getImage() == fire1) {
+            getImage().scale(80, 40);
+        } else {
+            getImage().scale(120, 90);
+        }
+
         if (this != null) {
 
             if (getY() <= 5 || getY() >= 795 || getX() <= 5 || getX() >= 695) {
@@ -44,7 +50,6 @@ public class Fireball extends Actor
                 }
             }
 
-            
             timeElapsed += 1;
         }    
     }

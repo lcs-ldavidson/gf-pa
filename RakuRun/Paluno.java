@@ -23,7 +23,7 @@ public class Paluno extends World
         prepare();
         timeElapsed = 19;
         Greenfoot.setSpeed(75);
-        setPaintOrder(HealthShow.class, GoldShow.class, Interface.class, Cloud.class, 
+        setPaintOrder(fireSwirl.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, Cloud.class, 
             Particle.class, Monster.class, Raku.class, Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
 
@@ -103,52 +103,39 @@ public class Paluno extends World
         addObject(Interface1,350,450);
 
         addObject(raku1,350,650);
-        Particle particle = new Particle();
-        addObject(particle,146,170);
-        Particle particle3 = new Particle();
-        addObject(particle3,459,190);
-        Particle particle5 = new Particle();
-        addObject(particle5,336,241);
-        Particle particle7 = new Particle();
-        addObject(particle7,460,321);
-        Particle particle9 = new Particle();
-        addObject(particle9,200,227);
-        Particle particle11 = new Particle();
-        addObject(particle11,189,160);
-        Particle particle13 = new Particle();
-        addObject(particle13,135,236);
-        Particle particle15 = new Particle();
-        addObject(particle15,132,343);
-        Particle particle17 = new Particle();
-        addObject(particle17,214,416);
-        Particle particle19 = new Particle();
-        addObject(particle19,380,353);
-        Particle particle21 = new Particle();
-        addObject(particle21,317,426);
-        Particle particle23 = new Particle();
-        addObject(particle23,140,459);
-        Particle particle25 = new Particle();
-        addObject(particle25,131,583);
-        Particle particle27 = new Particle();
-        addObject(particle27,351,574);
-        Particle particle29 = new Particle();
-        addObject(particle29,635,533);
-        Particle particle31 = new Particle();
-        addObject(particle31,415,477);
-        Particle particle33 = new Particle();
-        addObject(particle33,404,267);
-        Particle particle35 = new Particle();
-        addObject(particle35,544,190);
-        Particle particle37 = new Particle();
-        addObject(particle37,553,356);
-        Particle particle39 = new Particle();
-        addObject(particle39,266,583);
-        Particle particle41 = new Particle();
-        addObject(particle41,266,662);
-        Particle particle43 = new Particle();
-        addObject(particle43,123,680);
-        Particle particle45 = new Particle();
-        addObject(particle45,441,578);
+        
+        
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        addObject(new Particle(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        
         addObject(new Cloud(),Greenfoot.getRandomNumber(700),780);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
@@ -173,7 +160,9 @@ public class Paluno extends World
         addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700),799);
-
+        
+        addObject(new fireGauge(), 350, 60);
+        addObject(new fireSwirl(), 350, 60);
     }
 
     public int rakuX() {
