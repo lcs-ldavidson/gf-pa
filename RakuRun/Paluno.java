@@ -23,7 +23,7 @@ public class Paluno extends World
         prepare();
         timeElapsed = 19;
         Greenfoot.setSpeed(75);
-        setPaintOrder(fireSwirl.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, Cloud.class, 
+        setPaintOrder(readyFlare.class, fireSwirl.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, Cloud.class, 
             Particle.class, Monster.class, Raku.class, Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
 
@@ -163,6 +163,7 @@ public class Paluno extends World
         
         addObject(new fireGauge(), 350, 60);
         addObject(new fireSwirl(), 350, 60);
+        addObject(new readyFlare(), 355, 70);
     }
 
     public int rakuX() {
@@ -172,4 +173,5 @@ public class Paluno extends World
     public int rakuY() {
         return raku1.getY();
     }
+    
 }

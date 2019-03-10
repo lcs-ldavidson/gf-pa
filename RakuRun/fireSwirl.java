@@ -19,11 +19,9 @@ public class fireSwirl extends Actor
          transparency = 254;   
         }
         
-        
-        
         setImage("fireSwirl.png");
         getImage().setTransparency(transparency);
-        getImage().scale(transparency / 2 + 5, transparency / 2 + 5);
+        getImage().scale(transparency / 2 + 20, transparency / 2 + 20);
         turn(transparency / 10);
     }    
 }
