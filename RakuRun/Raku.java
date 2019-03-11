@@ -106,29 +106,36 @@ public class Raku extends Actor
         if (teleportTimer <= 510) {
             teleportTimer += 1;   
         }
-        
+
+
     }
 
     void teleport() {
         if (teleportTimer >= 510 && Greenfoot.isKeyDown("space")) {
 
-            if (Greenfoot.isKeyDown("up")) {
-                setLocation(getX(), getY() - 300);
-            } else if (Greenfoot.isKeyDown("down")) {
-                setLocation(getX(), getY() + 300);
-            } else if (Greenfoot.isKeyDown("left")) {
-                setLocation(getX() - 200, getY());
-            } else if (Greenfoot.isKeyDown("right")) {
-                setLocation(getX() + 200, getY());
-            } else {
+            getWorld().addObject(new TeleportEffect(false), getX(), getY());
 
+            if (Greenfoot.isKeyDown("up")) {
+                setLocation(getX(), getY() - 400);
+                vulnerability = 0;
+            } else if (Greenfoot.isKeyDown("down")) {
+                setLocation(getX(), getY() + 400);
+                vulnerability = 0;
+            } else if (Greenfoot.isKeyDown("left")) {
+                setLocation(getX() - 400, getY());
+                vulnerability = 0;
+            } else if (Greenfoot.isKeyDown("right")) {
+                setLocation(getX() + 400, getY());
+                vulnerability = 0;
+            } else {
+                takeDamage(Greenfoot.getRandomNumber(20) + 1, true);
             }
-            
-            vulnerability = 0;
+
+            getWorld().addObject(new TeleportEffect(true), getX(), getY());
 
             teleportTimer = 0;
-        }
 
+        }
     }
 
     void checkShoot() {
@@ -337,7 +344,7 @@ public class Raku extends Actor
     public int currentLaunchTimer() {
         return launchTimer;
     }
-    
+
     public int currentTP() {
         return teleportTimer;
     }

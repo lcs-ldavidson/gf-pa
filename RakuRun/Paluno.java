@@ -26,7 +26,7 @@ public class Paluno extends World
         
         setPaintOrder(RakuRun.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
         fireSwirl.class, KiGauge.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, 
-         AtmosphereClouds.class, Cloud.class, Particle.class, Monster.class, Raku.class, 
+         AtmosphereClouds.class, Cloud.class, Particle.class, Monster.class, TeleportEffect.class, Raku.class, 
          Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
 
