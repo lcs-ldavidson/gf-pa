@@ -11,6 +11,7 @@ public class Paluno extends World
 
     int timeElapsed;
     public Raku raku1 = new Raku();
+    int difficulty;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -23,11 +24,12 @@ public class Paluno extends World
         prepare();
         timeElapsed = 19;
         Greenfoot.setSpeed(75);
-        
+        difficulty = 0;
+
         setPaintOrder(RakuRun.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
-        fireSwirl.class, KiGauge.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, 
-         AtmosphereClouds.class, Cloud.class, Particle.class, Monster.class, TeleportEffect.class, Raku.class, 
-         Fireball.class, Potion.class, Gold.class, Terrain.class);
+            fireSwirl.class, KiGauge.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, 
+            AtmosphereClouds.class, Cloud.class, Particle.class, Monster.class, TeleportEffect.class, Raku.class, 
+            Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
 
     public void act()
@@ -39,7 +41,10 @@ public class Paluno extends World
         createGold();
         createPotion();
         createCloud();
-        
+
+        if (timeElapsed % 800 == 0) {
+            difficulty += 1;
+        }
     }
 
     void createGold() {
@@ -79,7 +84,7 @@ public class Paluno extends World
             addObject(new Particle(), Greenfoot.getRandomNumber(700), 0);
         }
     }
-    
+
     void createCloud()
     {
         if (timeElapsed % 5 == 0)
@@ -115,9 +120,9 @@ public class Paluno extends World
         addObject(Interface1,350,450);
 
         addObject(raku1,350,650);
-        
+
         addObject(new RakuRun(), 350, 300);
-        
+
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
@@ -224,8 +229,7 @@ public class Paluno extends World
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        
-        
+
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
@@ -242,11 +246,11 @@ public class Paluno extends World
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        
+
         addObject(new KiGauge(), 100, 710);
         addObject(new kiSwirl(), 100, 710);
         addObject(new kiFlare(), 100, 720);
-        
+
         addObject(new fireGauge(), 600, 710);
         addObject(new fireSwirl(), 600, 710);
         addObject(new readyFlare(), 600, 720);
@@ -259,5 +263,5 @@ public class Paluno extends World
     public int rakuY() {
         return raku1.getY();
     }
-    
+
 }
