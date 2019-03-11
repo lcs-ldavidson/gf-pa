@@ -103,14 +103,14 @@ public class Raku extends Actor
             setImage(run1);
         }
 
-        if (teleportTimer <= 300) {
+        if (teleportTimer <= 510) {
             teleportTimer += 1;   
         }
         
     }
 
     void teleport() {
-        if (teleportTimer >= 300 && Greenfoot.isKeyDown("space")) {
+        if (teleportTimer >= 510 && Greenfoot.isKeyDown("space")) {
 
             if (Greenfoot.isKeyDown("up")) {
                 setLocation(getX(), getY() - 300);
@@ -336,6 +336,10 @@ public class Raku extends Actor
 
     public int currentLaunchTimer() {
         return launchTimer;
+    }
+    
+    public int currentTP() {
+        return teleportTimer;
     }
 
     void swingSword() {

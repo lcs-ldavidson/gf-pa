@@ -37,7 +37,6 @@ public class Monster extends Actor
     public void act() 
     {
 
-        
 
         paluno = (Paluno) getWorld();
 
@@ -49,13 +48,16 @@ public class Monster extends Actor
 
         turnTowards(paluno.raku1.getX(), paluno.raku1.getY());
 
-        
+        if (Greenfoot.getRandomNumber(100) <= 30) {
+            move(3);   
+        }
+
         if (this != null) {
             hitBySword();
         }
 
         if(getWorld() == null) return;
-        
+
         if (getY() >= 799)
         {
             getWorld().removeObject(this);

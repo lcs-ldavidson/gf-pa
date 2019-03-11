@@ -18,14 +18,14 @@ public class Paluno extends World
      */
     public Paluno()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 700x800 cells with a cell size of 1x1 pixels.
         super(700, 800, 1); 
         prepare();
         timeElapsed = 19;
         Greenfoot.setSpeed(75);
         
-        setPaintOrder(RakuRun.class, startCloud.class, readyFlare.class, 
-        fireSwirl.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, 
+        setPaintOrder(RakuRun.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
+        fireSwirl.class, KiGauge.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, 
          AtmosphereClouds.class, Cloud.class, Particle.class, Monster.class, Raku.class, 
          Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
@@ -224,31 +224,32 @@ public class Paluno extends World
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         
         
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         
-        addObject(new fireGauge(), 350, 60);
-        addObject(new fireSwirl(), 350, 60);
-        addObject(new readyFlare(), 355, 70);
+        addObject(new KiGauge(), 100, 710);
+        addObject(new kiSwirl(), 100, 710);
+        addObject(new kiFlare(), 100, 720);
+        
+        addObject(new fireGauge(), 600, 710);
+        addObject(new fireSwirl(), 600, 710);
+        addObject(new readyFlare(), 600, 720);
     }
 
     public int rakuX() {
