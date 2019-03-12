@@ -12,6 +12,7 @@ public class Fireball extends Actor
     GreenfootImage fire1;
     GreenfootImage fire2;
     int timeElapsed;
+    int size;
 
     public Fireball(int direction) {
         setRotation(direction);
@@ -20,6 +21,7 @@ public class Fireball extends Actor
 
         timeElapsed = 0;
         setImage(fire1);
+        size = 20;
 
     }
 
@@ -30,9 +32,9 @@ public class Fireball extends Actor
         removeTouching(Particle.class);
 
         if (getImage() == fire1) {
-            getImage().scale(80, 40);
+            getImage().scale(40 + size, 20 + size);
         } else {
-            getImage().scale(120, 90);
+            getImage().scale(60 + size, 45 + size);
         }
 
         if (this != null) {
@@ -53,6 +55,7 @@ public class Fireball extends Actor
             }
 
             timeElapsed += 1;
+            size += 2;
         }    
     }
 }
