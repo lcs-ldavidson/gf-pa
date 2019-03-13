@@ -36,12 +36,14 @@ public class TeleportEffect extends Actor
         }
 
         if (appearing == true) {
-            getImage().scale(size, size);   
+
+            getImage().scale(size, size);
+            
         }
 
         turn(15);
         getImage().setTransparency(transparency);
         size += 5;
-        transparency -= 1;
+        transparency -= 10;
     }    
 }

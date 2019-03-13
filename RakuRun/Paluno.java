@@ -10,8 +10,10 @@ public class Paluno extends World
 {
 
     int timeElapsed;
+    int gaugeY;
     public Raku raku1 = new Raku();
     int difficulty;
+    public Blade blade1 = new Blade();
 
     /**
      * Constructor for objects of class MyWorld.
@@ -25,9 +27,10 @@ public class Paluno extends World
         timeElapsed = 19;
         Greenfoot.setSpeed(75);
         difficulty = 0;
+        
 
-        setPaintOrder(RakuRun.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
-            fireSwirl.class, KiGauge.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, 
+        setPaintOrder(RakuRun.class, FireHealth.class, Blade.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
+            fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Interface.class, 
             AtmosphereClouds.class, Cloud.class, Particle.class, Snake.class, Monster.class, TeleportEffect.class, Raku.class, 
             Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
@@ -255,14 +258,22 @@ public class Paluno extends World
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
+        
+        addObject(blade1, 350, 370);
+        
+        addObject(new FireHealth(), 300, 370);
+        
+        addObject(new HealthDisplay(), 350, 720);
 
-        addObject(new KiGauge(), 100, 710);
-        addObject(new kiSwirl(), 100, 710);
-        addObject(new kiFlare(), 100, 720);
+        
+        gaugeY = 710;
+        addObject(new KiGauge(), 90, gaugeY);
+        addObject(new kiSwirl(), 90, gaugeY);
+        addObject(new kiFlare(), 90, gaugeY + 10);
 
-        addObject(new fireGauge(), 600, 710);
-        addObject(new fireSwirl(), 600, 710);
-        addObject(new readyFlare(), 600, 720);
+        addObject(new fireGauge(), 610, gaugeY);
+        addObject(new fireSwirl(), 610, gaugeY);
+        addObject(new readyFlare(), 610, gaugeY + 10);
     }
 
     public int rakuX() {

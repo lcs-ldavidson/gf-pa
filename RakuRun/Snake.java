@@ -38,7 +38,7 @@ public class Snake extends Actor
         setImage(monster1);
         size = Greenfoot.getRandomNumber(10) + 170;
 
-        speed = Greenfoot.getRandomNumber(7) + 5;
+        speed = 6;
     }
 
     public void act() 
@@ -51,7 +51,7 @@ public class Snake extends Actor
 
         getImage().scale(size, 69);
 
-        turnTowards(paluno.raku1.getX(), paluno.raku1.getY());
+        setRotation(90);
 
         if (Greenfoot.getRandomNumber(100) <= 30) {
             move(((Paluno)getWorld()).difficulty);   
@@ -76,7 +76,7 @@ public class Snake extends Actor
 
     void animate()
     {
-        if (timeElapsed % 5 == 0)
+        if (timeElapsed % 10 == 0)
         {
 
             if (getImage() == monster1)

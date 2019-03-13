@@ -13,6 +13,7 @@ public class Fireball extends Actor
     GreenfootImage fire2;
     int timeElapsed;
     int size;
+    
 
     public Fireball(int direction) {
         setRotation(direction);
@@ -27,7 +28,11 @@ public class Fireball extends Actor
 
     public void act() 
     {
-        removeTouching(Monster.class);
+        
+        if (isTouching(Monster.class) || isTouching(Snake.class)) {
+            hitMonster();
+        }
+        
         removeTouching(AtmosphereClouds.class);
         removeTouching(Particle.class);
 
@@ -58,4 +63,11 @@ public class Fireball extends Actor
             size += 2;
         }    
     }
+    
+    void hitMonster() {
+        removeTouching(Monster.class);
+        removeTouching(Snake.class);
+        ((Paluno)getWorld()).raku1.kills += 1;
+    }
+    
 }

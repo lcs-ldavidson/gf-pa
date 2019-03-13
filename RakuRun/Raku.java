@@ -26,6 +26,7 @@ public class Raku extends Actor
     int swingTimer;
     boolean canSwing;
     int teleportTimer;
+    int kills;
 
     public Raku()
     {
@@ -45,6 +46,7 @@ public class Raku extends Actor
         swingTimer = 0;
         canSwing = true;
         teleportTimer = 0;
+        kills = 0;
 
     }
 
@@ -54,7 +56,7 @@ public class Raku extends Actor
 
             enteredStorm();
             control();
-            showHealth();
+            showKills();
             timeAlive = timeAlive + 1;
             if (vulnerability >= 255) {
                 hitByEnemy();
@@ -109,6 +111,10 @@ public class Raku extends Actor
             teleportTimer += 1;   
         }
 
+        if (getImage() == corpse) {
+            health = 0;
+        }
+        
 
     }
 
@@ -203,10 +209,9 @@ public class Raku extends Actor
         }
     }
 
-    void showHealth()
+    void showKills()
     {
-
-        getWorld().showText("HP: " + health + "/100", 585, 50);
+        getWorld().showText("Kills: " + kills, 585, 50);
     }
 
     void showGold()
