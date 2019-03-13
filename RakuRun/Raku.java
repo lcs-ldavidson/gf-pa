@@ -58,12 +58,14 @@ public class Raku extends Actor
             timeAlive = timeAlive + 1;
             if (vulnerability >= 255) {
                 hitByEnemy();
+                hitBySnake();
             }
             showGold();
             collectGold(Greenfoot.getRandomNumber(100) + 1);
             drinkPotion(Greenfoot.getRandomNumber(12) + 1);
             checkShoot();
             teleport();
+            
 
             if (launchTimer <= 255) {
                 launchTimer += 1;
@@ -190,6 +192,14 @@ public class Raku extends Actor
         if (isTouching(Monster.class) && timeAlive % 15 == 0)
         {
             takeDamage(Greenfoot.getRandomNumber(20) + 1, false);
+        }
+    }
+    
+    void hitBySnake()
+    {
+        if (isTouching(Snake.class) && timeAlive % 15 == 0)
+        {
+            takeDamage(Greenfoot.getRandomNumber(50) + 1, false);
         }
     }
 

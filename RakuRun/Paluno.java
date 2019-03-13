@@ -28,7 +28,7 @@ public class Paluno extends World
 
         setPaintOrder(RakuRun.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthShow.class, GoldShow.class, Interface.class, 
-            AtmosphereClouds.class, Cloud.class, Particle.class, Monster.class, TeleportEffect.class, Raku.class, 
+            AtmosphereClouds.class, Cloud.class, Particle.class, Snake.class, Monster.class, TeleportEffect.class, Raku.class, 
             Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
 
@@ -41,6 +41,7 @@ public class Paluno extends World
         createGold();
         createPotion();
         createCloud();
+        spawnSnake();
 
         if (timeElapsed % 800 == 0) {
             difficulty += 1;
@@ -66,6 +67,14 @@ public class Paluno extends World
         if (Greenfoot.getRandomNumber(100) < 4)
         {
             addObject(new Monster(), Greenfoot.getRandomNumber(700), 1);   
+        }
+    }
+    
+    void spawnSnake()
+    {
+        if (Greenfoot.getRandomNumber(600) < 4)
+        {
+            addObject(new Snake(), Greenfoot.getRandomNumber(700), 1);   
         }
     }
 
