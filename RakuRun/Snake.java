@@ -98,6 +98,7 @@ public class Snake extends Actor
     void hitBySword() {
 
         if (intersects(((Paluno)getWorld()).raku1) && ((Paluno)getWorld()).raku1.getImage() == ((Paluno)getWorld()).raku1.swinger) {
+            ((Paluno)getWorld()).raku1.kills += 1;
             getWorld().removeObject(this);
         }
 

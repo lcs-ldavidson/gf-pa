@@ -20,6 +20,6 @@ public class kiSwirl extends Actor
         setImage("kiSwirl.png");
         getImage().setTransparency(transparency / 2);
         getImage().scale(transparency / 4 + 10, transparency / 4 + 10);
-        turn(transparency / 40);
+        turn(transparency / 60);
     }    
 }
