@@ -349,10 +349,7 @@ public class Raku extends Actor
         if (getImage() == corpse) {
             setLocation(getX(), getY() + 5);
             health = 0;
-            if (isAtEdge()) {
-                Greenfoot.stop();   
-
-            }
+            
         }
     }
 

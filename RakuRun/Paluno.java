@@ -11,6 +11,7 @@ public class Paluno extends World
 
     int timeElapsed;
     int gaugeY;
+    int endTimer;
     public Raku raku1 = new Raku();
     int difficulty;
     public Blade blade1 = new Blade();
@@ -27,9 +28,10 @@ public class Paluno extends World
         timeElapsed = 19;
         Greenfoot.setSpeed(75);
         difficulty = 0;
-        
+        endTimer = 0;
 
-        setPaintOrder(RakuRun.class, FireHealth.class, Blade.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
+        setPaintOrder(RakuRun.class, FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
+            Blade.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Interface.class, 
             AtmosphereClouds.class, Cloud.class, Particle.class, Snake.class, Monster.class, TeleportEffect.class, Raku.class, 
             Fireball.class, Potion.class, Gold.class, Terrain.class);
@@ -46,9 +48,30 @@ public class Paluno extends World
         createCloud();
         spawnSnake();
 
+        if (raku1.getImage() == raku1.corpse && timeElapsed % 4 == 0 && endTimer < 250) {
+            addObject(new EndCloud(), Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        }
+
         if (timeElapsed % 800 == 0) {
             difficulty += 1;
         }
+
+        if (raku1.getImage() == raku1.corpse) {
+            endTimer += 1;
+        }
+
+        if (endTimer == 50) {
+            addObject(new FinalGold(), 350, 200);
+        }
+
+        if (endTimer == 75) {
+            addObject(new FinalKills(), 350, 300);
+        }
+        
+        if (endTimer == 80) {
+            addObject(new FinalScore(), 350, 500);
+        }
+
     }
 
     void createGold() {
@@ -72,7 +95,7 @@ public class Paluno extends World
             addObject(new Monster(), Greenfoot.getRandomNumber(700), 1);   
         }
     }
-    
+
     void spawnSnake()
     {
         if (Greenfoot.getRandomNumber(600) < 4)
@@ -258,14 +281,13 @@ public class Paluno extends World
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
-        
+
         addObject(blade1, 350, 370);
-        
+
         addObject(new FireHealth(), 300, 370);
-        
+
         addObject(new HealthDisplay(), 350, 720);
 
-        
         gaugeY = 710;
         addObject(new KiGauge(), 90, gaugeY);
         addObject(new kiSwirl(), 90, gaugeY);

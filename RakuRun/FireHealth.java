@@ -36,13 +36,13 @@ public class FireHealth extends Actor
     {
 
         setLocation((getX()), ((Paluno)getWorld()).blade1.getY());
-        
+
         stretch = ((((Paluno)getWorld()).raku1.health) * 5) + 1;
-        
+
         if (((Paluno)getWorld()).blade1.getY() == 760) {
             transparency += 5;
         }
-        
+
         if (transparency >= 254) {
             transparency = 254;
         }
@@ -73,9 +73,12 @@ public class FireHealth extends Actor
 
         }
 
-        
         getImage().scale(stretch, 58);
         timeElapsed += 1;
         getImage().setTransparency(transparency);
+
+        if (((Paluno)getWorld()).endTimer > 1) {
+            getImage().setTransparency(0);   
+        }
     }    
 }
