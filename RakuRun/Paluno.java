@@ -26,7 +26,7 @@ public class Paluno extends World
         super(700, 800, 1); 
         prepare();
         timeElapsed = 19;
-        Greenfoot.setSpeed(75);
+        Greenfoot.setSpeed(50);
         difficulty = 0;
         endTimer = 0;
 
@@ -67,7 +67,7 @@ public class Paluno extends World
         if (endTimer == 75) {
             addObject(new FinalKills(), 350, 300);
         }
-        
+
         if (endTimer == 80) {
             addObject(new FinalScore(), 350, 500);
         }
