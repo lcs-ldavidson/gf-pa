@@ -13,12 +13,14 @@ public class Blade extends Actor
     int turnSpeed;
     int sizeW;
     int sizeH;
+    boolean stopRotating;
 
     public Blade() {
         turnSpeed = -17;
         movement = 25;
         sizeW = 380;
         sizeH = 31;
+        stopRotating = false;
     }
 
     public void act() 
@@ -41,12 +43,17 @@ public class Blade extends Actor
 
         }
 
-        if (((Paluno)getWorld()).endTimer >= 100 && getY() >= 400) {
+        if (((Paluno)getWorld()).endTimer >= 100 && getY() >= 275) {
             setLocation(getX(), getY() - 10);
-            turn(-20);
-            
-            if (getY() == 390) {
-             setRotation(0);   
+
+            if (getY() <= 275 && getRotation() == 0) {
+                stopRotating = true;
+            }
+
+            if (stopRotating == true) {
+                setRotation(0);   
+            } else {
+                turn(-15);   
             }
 
         }

@@ -30,29 +30,39 @@ public class Paluno extends World
         difficulty = 0;
         endTimer = 0;
 
-        setPaintOrder(RakuRun.class, FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
+        setPaintOrder(RakuRun.class, OpenerImage.class, FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
             Blade.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
-            fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Interface.class, 
-            AtmosphereClouds.class, Cloud.class, Particle.class, Snake.class, Monster.class, TeleportEffect.class, Raku.class, 
+            fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, Interface.class, 
+            AtmosphereClouds.class, Cloud.class, Particle.class, Snake.class, Spider.class, Monster.class, TeleportEffect.class, Raku.class, 
             Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
 
     public void act()
     {
-        timeElapsed = timeElapsed + 1;
+
         createTerrain();
+        timeElapsed = timeElapsed + 1;
         createParticle();
         spawnEnemy();
         createGold();
         createPotion();
         createCloud();
-        spawnSnake();
 
+        if (difficulty >= 1) {
+            spawnSpider();
+        }
+        if (difficulty >= 2){
+            spawnSnake();
+        }
+        if (difficulty >= 3) {
+            spawnLightning();
+        }
+        
         if (raku1.getImage() == raku1.corpse && timeElapsed % 4 == 0 && endTimer < 250) {
             addObject(new EndCloud(), Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         }
 
-        if (timeElapsed % 800 == 0) {
+        if (timeElapsed % 600 == 0) {
             difficulty += 1;
         }
 
@@ -61,15 +71,15 @@ public class Paluno extends World
         }
 
         if (endTimer == 50) {
-            addObject(new FinalGold(), 350, 200);
+            addObject(new FinalGold(), 350, 110);
         }
 
         if (endTimer == 75) {
-            addObject(new FinalKills(), 350, 300);
+            addObject(new FinalKills(), 350, 210);
         }
 
         if (endTimer == 80) {
-            addObject(new FinalScore(), 350, 500);
+            addObject(new FinalScore(), 350, 750);
         }
 
     }
@@ -96,9 +106,25 @@ public class Paluno extends World
         }
     }
 
-    void spawnSnake()
+    void spawnLightning()
+    {
+        if (Greenfoot.getRandomNumber(800) < 4)
+        {
+            addObject(new Lightning(), 1, 1);   
+        }
+    }
+
+    void spawnSpider()
     {
         if (Greenfoot.getRandomNumber(600) < 4)
+        {
+            addObject(new Spider(), Greenfoot.getRandomNumber(700), 1);   
+        }
+    }
+
+    void spawnSnake()
+    {
+        if (Greenfoot.getRandomNumber(600) < 3)
         {
             addObject(new Snake(), Greenfoot.getRandomNumber(700), 1);   
         }
@@ -156,7 +182,9 @@ public class Paluno extends World
 
         addObject(raku1,350,650);
 
-        addObject(new RakuRun(), 350, 300);
+        addObject(new RakuRun(), 350, 230);
+        
+        addObject(new OpenerImage(), 490, 580);
 
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
@@ -282,9 +310,9 @@ public class Paluno extends World
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
 
-        addObject(blade1, 350, 370);
+        addObject(blade1, 350, 300);
 
-        addObject(new FireHealth(), 300, 370);
+        addObject(new FireHealth(), 300, 300);
 
         addObject(new HealthDisplay(), 350, 720);
 

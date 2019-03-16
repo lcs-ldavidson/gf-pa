@@ -21,13 +21,13 @@ public class FinalScore extends Actor
     {
         setImage(new GreenfootImage("Score: " + runningKills, 100, Color.RED, new Color(0, 0, 0, 0), Color.BLACK));
 
-        if (runningKills < (((Paluno)getWorld()).raku1.kills * 5) + ((Paluno)getWorld()).raku1.gold) {
+        if (runningKills < (((Paluno)getWorld()).raku1.kills * 10) + ((Paluno)getWorld()).raku1.gold) {
             runningKills += 30;
         }   
 
-        if (runningKills >= (((Paluno)getWorld()).raku1.kills * 5) + ((Paluno)getWorld()).raku1.gold) {
+        if (runningKills >= (((Paluno)getWorld()).raku1.kills * 10) + ((Paluno)getWorld()).raku1.gold) {
 
-            runningKills = (((Paluno)getWorld()).raku1.kills * 5) + ((Paluno)getWorld()).raku1.gold;
+            runningKills = (((Paluno)getWorld()).raku1.kills * 10) + ((Paluno)getWorld()).raku1.gold;
 
         }    
         

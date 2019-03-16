@@ -61,13 +61,13 @@ public class Raku extends Actor
             if (vulnerability >= 255) {
                 hitByEnemy();
                 hitBySnake();
+                hitBySpider();
             }
             showGold();
             collectGold(Greenfoot.getRandomNumber(100) + 1);
             drinkPotion(Greenfoot.getRandomNumber(12) + 1);
             checkShoot();
             teleport();
-            
 
             if (launchTimer <= 255) {
                 launchTimer += 1;
@@ -89,6 +89,7 @@ public class Raku extends Actor
         getImage().setTransparency(vulnerability);
 
         die();
+        hitByLightning();
 
         if (health >= 101) {
             health = 100;
@@ -114,8 +115,12 @@ public class Raku extends Actor
         if (getImage() == corpse) {
             health = 0;
         }
-        
 
+    }
+    void hitByLightning() {
+        if (isTouching(Lightning.class)) {
+            setImage(corpse);
+        }
     }
 
     void teleport() {
@@ -200,12 +205,20 @@ public class Raku extends Actor
             takeDamage(Greenfoot.getRandomNumber(20) + 1, false);
         }
     }
-    
+
     void hitBySnake()
     {
         if (isTouching(Snake.class) && timeAlive % 15 == 0)
         {
             takeDamage(Greenfoot.getRandomNumber(50) + 1, false);
+        }
+    }
+
+    void hitBySpider()
+    {
+        if (isTouching(Spider.class))
+        {
+            takeDamage(Greenfoot.getRandomNumber(6) + 1, false);
         }
     }
 
@@ -349,7 +362,7 @@ public class Raku extends Actor
         if (getImage() == corpse) {
             setLocation(getX(), getY() + 5);
             health = 0;
-            
+
         }
     }
 
