@@ -29,7 +29,7 @@ public class Fireball extends Actor
     public void act() 
     {
         
-        if (isTouching(Monster.class) || isTouching(Snake.class)) {
+        if (isTouching(Monster.class) || isTouching(Snake.class) || isTouching(Spider.class)) {
             hitMonster();
         }
         
@@ -67,6 +67,7 @@ public class Fireball extends Actor
     void hitMonster() {
         removeTouching(Monster.class);
         removeTouching(Snake.class);
+        removeTouching(Spider.class);
         ((Paluno)getWorld()).raku1.kills += 1;
     }
     

@@ -63,6 +63,8 @@ public class Spider extends Actor
         {
             getWorld().removeObject(this);
         }
+        
+        
     }
 
     void movement()

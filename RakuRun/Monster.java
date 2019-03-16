@@ -50,7 +50,7 @@ public class Monster extends Actor
         turnTowards(paluno.raku1.getX(), paluno.raku1.getY());
 
         if (Greenfoot.getRandomNumber(100) <= 30) {
-            move(((Paluno)getWorld()).difficulty);   
+            move(((Paluno)getWorld()).difficulty / 2);   
         }
 
         if (this != null) {

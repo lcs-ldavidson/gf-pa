@@ -30,8 +30,8 @@ public class Paluno extends World
         difficulty = 0;
         endTimer = 0;
 
-        setPaintOrder(RakuRun.class, OpenerImage.class, FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
-            Blade.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
+        setPaintOrder(RakuRun.class,  OpenerImage.class, skollackOpener.class, FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
+            Blade.class, Eyes.class, endSkollack.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, Interface.class, 
             AtmosphereClouds.class, Cloud.class, Particle.class, Snake.class, Spider.class, Monster.class, TeleportEffect.class, Raku.class, 
             Fireball.class, Potion.class, Gold.class, Terrain.class);
@@ -80,6 +80,14 @@ public class Paluno extends World
 
         if (endTimer == 80) {
             addObject(new FinalScore(), 350, 750);
+        }
+        
+        if (endTimer == 75) {
+            addObject(new endSkollack(), 350, 799);
+        }
+        
+        if (endTimer == 130) {
+            addObject(new Eyes(), 350, 625);
         }
 
     }
@@ -182,7 +190,7 @@ public class Paluno extends World
 
         addObject(raku1,350,650);
 
-        addObject(new RakuRun(), 350, 230);
+        addObject(new RakuRun(), 350, 170);
         
         addObject(new OpenerImage(), 490, 580);
 
@@ -310,11 +318,13 @@ public class Paluno extends World
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
         addObject(new Cloud(),Greenfoot.getRandomNumber(700), 800);
 
-        addObject(blade1, 350, 300);
+        addObject(blade1, 350, 270);
 
-        addObject(new FireHealth(), 300, 300);
+        addObject(new FireHealth(), 300, 270);
 
         addObject(new HealthDisplay(), 350, 720);
+        
+        addObject(new skollackOpener(), 199, 633);
 
         gaugeY = 710;
         addObject(new KiGauge(), 90, gaugeY);
