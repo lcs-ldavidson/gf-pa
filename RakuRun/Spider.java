@@ -26,7 +26,6 @@ public class Spider extends Actor
     public Spider()
     {
         timeElapsed = 0;
-        
 
         
         monster1 = new GreenfootImage("spider1.png");
@@ -63,10 +62,8 @@ public class Spider extends Actor
         {
             getWorld().removeObject(this);
         }
-        
-        
-    }
 
+    }
     void movement()
     {
         setLocation(getX(), getY() + speed);
@@ -91,10 +88,12 @@ public class Spider extends Actor
 
         if (intersects(((Paluno)getWorld()).raku1) && ((Paluno)getWorld()).raku1.getImage() == ((Paluno)getWorld()).raku1.swinger) {
             ((Paluno)getWorld()).raku1.kills += 1;
+            if (((Paluno)getWorld()).raku1.leleTimer < 255) {
+                ((Paluno)getWorld()).raku1.leleTimer += 5;
+            }
             getWorld().removeObject(this);
         }
 
     }
-
 
 }

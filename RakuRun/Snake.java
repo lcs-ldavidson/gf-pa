@@ -28,7 +28,6 @@ public class Snake extends Actor
     public Snake()
     {
         timeElapsed = 0;
-        
 
         
         monster1 = new GreenfootImage("snake1.png");
@@ -99,10 +98,12 @@ public class Snake extends Actor
 
         if (intersects(((Paluno)getWorld()).raku1) && ((Paluno)getWorld()).raku1.getImage() == ((Paluno)getWorld()).raku1.swinger) {
             ((Paluno)getWorld()).raku1.kills += 1;
+            if (((Paluno)getWorld()).raku1.leleTimer < 255) {
+                ((Paluno)getWorld()).raku1.leleTimer += 5;
+            }
             getWorld().removeObject(this);
         }
 
     }
-
 
 }

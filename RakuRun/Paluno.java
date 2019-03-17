@@ -32,7 +32,7 @@ public class Paluno extends World
 
         setPaintOrder(RakuRun.class,  OpenerImage.class, skollackOpener.class, FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
             Blade.class, Eyes.class, endSkollack.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
-            fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, Interface.class, 
+            fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, leleHead.class, vaerminaHead.class, Interface.class, 
             AtmosphereClouds.class, Cloud.class, Particle.class, Snake.class, Spider.class, Monster.class, TeleportEffect.class, Raku.class, 
             Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
@@ -325,6 +325,9 @@ public class Paluno extends World
         addObject(new HealthDisplay(), 350, 720);
         
         addObject(new skollackOpener(), 199, 633);
+        
+        addObject(new leleHead(), 293, 53);
+        addObject(new vaerminaHead(), 402, 47);
 
         gaugeY = 710;
         addObject(new KiGauge(), 90, gaugeY);

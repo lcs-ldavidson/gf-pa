@@ -27,6 +27,10 @@ public class Raku extends Actor
     boolean canSwing;
     int teleportTimer;
     int kills;
+    int leleTimer;
+    int vaerminaTimer;
+    boolean leleIsActive;
+    int leleCoolDown;
 
     public Raku()
     {
@@ -47,7 +51,10 @@ public class Raku extends Actor
         canSwing = true;
         teleportTimer = 0;
         kills = 0;
-
+        leleTimer = 0;
+        vaerminaTimer = 0;
+        leleIsActive = false;
+        leleCoolDown = 400;
     }
 
     public void act() 
@@ -116,7 +123,26 @@ public class Raku extends Actor
             health = 0;
         }
 
+        if (leleTimer == 255 && Greenfoot.isKeyDown("q")) {
+            activateLele();
+        }
+
+        if (leleIsActive == true) {
+            vulnerability = 30;
+            leleCoolDown -= 1;
+        }
+
+        if (leleCoolDown == 0) {
+            leleCoolDown = 400;
+            leleIsActive = false;
+        }
+
+        if (vaerminaTimer == 255 && Greenfoot.isKeyDown("e")) {
+            activeVaermina();
+        }
+
     }
+
     void hitByLightning() {
         if (isTouching(Lightning.class)) {
             setImage(corpse);
@@ -195,6 +221,9 @@ public class Raku extends Actor
             removeTouching(Gold.class);
             gold += amount;
             getWorld().addObject(new GoldShow("" + amount), getX() + 30, getY() - 30);
+            if (vaerminaTimer < 255) {
+                vaerminaTimer += 5;
+            }
         }
     }
 
@@ -383,6 +412,16 @@ public class Raku extends Actor
             canSwing = false;
             swingTimer = 0;
         }
+    }
+
+    void activateLele() {
+        leleIsActive = true;
+        leleTimer = 0;
+    }
+
+    void activeVaermina() {
+        vaerminaTimer = 0;
+        takeDamage(50, true);
     }
 
 }
