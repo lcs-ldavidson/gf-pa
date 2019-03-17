@@ -33,7 +33,7 @@ public class Paluno extends World
         setPaintOrder(RakuRun.class,  OpenerImage.class, skollackOpener.class, FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
             Blade.class, Eyes.class, endSkollack.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, leleHead.class, vaerminaHead.class, Interface.class, 
-            AtmosphereClouds.class, Cloud.class, Particle.class, Snake.class, Spider.class, Monster.class, TeleportEffect.class, Raku.class, 
+            AtmosphereClouds.class, Lele.class, Cloud.class, Particle.class, Snake.class, Spider.class, Monster.class, TeleportEffect.class, Raku.class, 
             Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
 
@@ -54,7 +54,7 @@ public class Paluno extends World
         if (difficulty >= 2){
             spawnSnake();
         }
-        if (difficulty >= 3) {
+        if (difficulty >= 5) {
             spawnLightning();
         }
         

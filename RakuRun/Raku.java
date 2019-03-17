@@ -51,8 +51,8 @@ public class Raku extends Actor
         canSwing = true;
         teleportTimer = 0;
         kills = 0;
-        leleTimer = 0;
-        vaerminaTimer = 0;
+        leleTimer = 100;
+        vaerminaTimer = 100;
         leleIsActive = false;
         leleCoolDown = 400;
     }
@@ -144,7 +144,7 @@ public class Raku extends Actor
     }
 
     void hitByLightning() {
-        if (isTouching(Lightning.class)) {
+        if (isTouching(Lightning.class) && vulnerability != 30) {
             setImage(corpse);
         }
     }
@@ -415,13 +415,17 @@ public class Raku extends Actor
     }
 
     void activateLele() {
+        getWorld().addObject(new Lele(), getX(), 799);
         leleIsActive = true;
         leleTimer = 0;
+        kills -= 30;
     }
 
     void activeVaermina() {
         vaerminaTimer = 0;
         takeDamage(50, true);
+        
+        gold -= 1000;
     }
 
 }
