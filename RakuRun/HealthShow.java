@@ -43,10 +43,13 @@ public class HealthShow extends Actor
             setImage(new GreenfootImage("+" + damageText, (transparency / 2), new Color(0, 255, 0, transparency), new Color(0, 0, 0, 0), Color.BLACK));
         }
         
+        setLocation(getX(), getY() + 2);
         
         if (transparency <= 0)
         {
             getWorld().removeObject(this);
         }
+        
+        
     }    
 }

@@ -28,9 +28,12 @@ public class GoldShow extends Actor
         transparency -= 1;
         setImage(new GreenfootImage("+" + damageText, (transparency / 3), new Color(255, 255, 0, transparency), new Color(0, 0, 0, 0), Color.BLACK));
 
+        setLocation(getX(), getY() + 2);
+        
         if (transparency <= 0)
         {
             getWorld().removeObject(this);
         }
+       
     }    
 }

@@ -15,6 +15,7 @@ public class Paluno extends World
     public Raku raku1 = new Raku();
     int difficulty;
     public Blade blade1 = new Blade();
+    public skollack skollack1 = new skollack();
 
     /**
      * Constructor for objects of class MyWorld.
@@ -30,10 +31,14 @@ public class Paluno extends World
         difficulty = 0;
         endTimer = 0;
 
-        setPaintOrder(RakuRun.class,  OpenerImage.class, skollackOpener.class, FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
+        setPaintOrder(RakuRun.class,  OpenerImage.class, skollackOpener.class, 
+            FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
             Blade.class, Eyes.class, endSkollack.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
-            fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, leleHead.class, vaerminaHead.class, Interface.class, 
-            AtmosphereClouds.class, Lele.class, Cloud.class, Particle.class, Snake.class, Spider.class, Monster.class, TeleportEffect.class, Raku.class, 
+            fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, 
+            leleHead.class, vaerminaHead.class, Interface.class, 
+            AtmosphereClouds.class, Lele.class, Cloud.class, 
+            Particle.class, skollack.class, Snake.class, 
+            Spider.class, Monster.class, TeleportEffect.class, Raku.class, Tentacles.class, Smoke.class,
             Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
 
@@ -57,7 +62,7 @@ public class Paluno extends World
         if (difficulty >= 5) {
             spawnLightning();
         }
-        
+
         if (raku1.getImage() == raku1.corpse && timeElapsed % 4 == 0 && endTimer < 250) {
             addObject(new EndCloud(), Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         }
@@ -81,11 +86,11 @@ public class Paluno extends World
         if (endTimer == 80) {
             addObject(new FinalScore(), 350, 750);
         }
-        
+
         if (endTimer == 75) {
             addObject(new endSkollack(), 350, 799);
         }
-        
+
         if (endTimer == 130) {
             addObject(new Eyes(), 350, 625);
         }
@@ -189,9 +194,10 @@ public class Paluno extends World
         addObject(Interface1,350,450);
 
         addObject(raku1,350,650);
+        addObject(skollack1, 350, 180);
 
         addObject(new RakuRun(), 350, 170);
-        
+
         addObject(new OpenerImage(), 490, 580);
 
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
@@ -323,9 +329,9 @@ public class Paluno extends World
         addObject(new FireHealth(), 300, 270);
 
         addObject(new HealthDisplay(), 350, 720);
-        
+
         addObject(new skollackOpener(), 199, 633);
-        
+
         addObject(new leleHead(), 293, 53);
         addObject(new vaerminaHead(), 402, 47);
 
@@ -337,6 +343,9 @@ public class Paluno extends World
         addObject(new fireGauge(), 610, gaugeY);
         addObject(new fireSwirl(), 610, gaugeY);
         addObject(new readyFlare(), 610, gaugeY + 10);
+        
+        addObject(new Tentacles(), 1, 1);
+        addObject(new Smoke(), 1, 1);
     }
 
     public int rakuX() {
