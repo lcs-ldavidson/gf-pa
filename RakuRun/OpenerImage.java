@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class OpenerImage extends Actor
+public class OpenerImage extends Effects
 {
     int transparency;
     int timeElapsed;
@@ -23,11 +23,11 @@ public class OpenerImage extends Actor
         if (timeElapsed >= 20) {
             transparency -= 5;
         }
-       
+
         getImage().setTransparency(transparency);
-        
+
         setLocation(getX() + 1, getY());
-        
+
         if (transparency <= 5) {
             getWorld().removeObject(this);
         }

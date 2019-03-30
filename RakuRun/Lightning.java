@@ -6,9 +6,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Lightning extends Actor
-{
-    int timeElapsed;
+public class Lightning extends Threats
+{int timeElapsed;
     int rightOrLeftOrUp;
     GreenfootImage image1;
     GreenfootImage image2;

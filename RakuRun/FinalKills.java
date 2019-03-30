@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FinalKills extends Actor
+public class FinalKills extends Text
 {
     int timeElapsed;
     int runningKills;

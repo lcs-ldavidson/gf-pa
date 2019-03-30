@@ -6,16 +6,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class kiSwirl extends Actor
+public class kiSwirl extends Effects
 {
-    
+
     int transparency;
-    
+
     public void act() 
     {
         transparency = ((Paluno)getWorld()).raku1.currentTP();
-        
-        
+
         
         setImage("kiSwirl.png");
         getImage().setTransparency(transparency / 2);

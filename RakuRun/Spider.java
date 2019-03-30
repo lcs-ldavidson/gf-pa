@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Spider extends Actor
+public class Spider extends Threats
 {
 
     GreenfootImage monster1;
@@ -27,7 +27,6 @@ public class Spider extends Actor
     {
         timeElapsed = 0;
 
-        
         monster1 = new GreenfootImage("spider1.png");
         monster2 = new GreenfootImage("spider2.png");
         setImage(monster1);
@@ -64,6 +63,7 @@ public class Spider extends Actor
         }
 
     }
+
     void movement()
     {
         setLocation(getX(), getY() + speed);
@@ -95,5 +95,4 @@ public class Spider extends Actor
         }
 
     }
-
 }

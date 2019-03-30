@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class skollackOpener extends Actor
+public class skollackOpener extends Effects
 {
     int transparency;
     int timeElapsed;
@@ -23,15 +23,14 @@ public class skollackOpener extends Actor
         if (timeElapsed >= 1) {
             transparency -= 5;
         }
-       
+
         getImage().setTransparency(transparency);
-        
+
         setLocation(getX(), getY() - 2);
-        
+
         if (transparency <= 5) {
             getWorld().removeObject(this);
         }
-        
-        
+
     }    
 }

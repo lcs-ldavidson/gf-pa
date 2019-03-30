@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class endSkollack extends Actor
+public class endSkollack extends Effects
 {
     int timeElapsed;
     int transparency;
@@ -27,5 +27,5 @@ public class endSkollack extends Actor
         }
         
         getImage().setTransparency(transparency);
-    }    
+    }
 }

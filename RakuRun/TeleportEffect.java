@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TeleportEffect extends Actor
+public class TeleportEffect extends Effects
 {
 
     boolean appearing;
@@ -38,7 +38,7 @@ public class TeleportEffect extends Actor
         if (appearing == true) {
 
             getImage().scale(size, size);
-            
+
         }
 
         turn(15);

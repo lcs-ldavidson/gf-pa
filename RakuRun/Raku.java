@@ -64,83 +64,23 @@ public class Raku extends Actor
             enteredStorm();
             control();
             showKills();
-            timeAlive = timeAlive + 1;
-            if (vulnerability >= 255) {
-                hitByEnemy();
-                hitBySnake();
-                hitBySpider();
-            }
+            die();
+            hitByLightning();
             showGold();
             collectGold(Greenfoot.getRandomNumber(100) + 1);
             drinkPotion(Greenfoot.getRandomNumber(12) + 1);
             checkShoot();
             teleport();
+            swingManagement();
+            fireballManagement();
+            vulnerabilityManagement();
+            healthManagement();
+            leleManagement();
+            vaerminaManagement();
 
-            if (launchTimer <= 255) {
-                launchTimer += 1;
-            }
-
-            if (launchTimer == 15) {
-                setImage(run1);
-            }
         }
 
-        if (vulnerability <= 255) {
-            vulnerability += 3;
-        }
-
-        if (vulnerability >= 256) {
-            vulnerability = 255;
-        }
-
-        getImage().setTransparency(vulnerability);
-
-        die();
-        hitByLightning();
-
-        if (health >= 101) {
-            health = 100;
-        }
-
-        if (swingTimer <= 50) {
-            swingTimer += 1;   
-        }
-
-        if (swingTimer <= 9) {
-            turn(10);
-        }
-
-        if (swingTimer == 10) {
-            setRotation(0);
-            setImage(run1);
-        }
-
-        if (teleportTimer <= 510) {
-            teleportTimer += 1;   
-        }
-
-        if (getImage() == corpse) {
-            health = 0;
-        }
-
-        if (leleTimer == 255 && Greenfoot.isKeyDown("q")) {
-            activateLele();
-        }
-
-        if (leleIsActive == true) {
-            vulnerability = 30;
-            leleCoolDown -= 1;
-        }
-
-        if (leleCoolDown == 0) {
-            leleCoolDown = 400;
-            leleIsActive = false;
-        }
-
-        if (vaerminaTimer == 255 && Greenfoot.isKeyDown("e")) {
-            activeVaermina();
-        }
-
+        timeAlive = timeAlive + 1;
     }
 
     void hitByLightning() {
@@ -175,6 +115,18 @@ public class Raku extends Actor
             teleportTimer = 0;
 
         }
+        if (teleportTimer <= 510) {
+            teleportTimer += 1;   
+        }
+    }
+
+    void healthManagement() {
+        if (health >= 101) {
+            health = 100;
+        }
+        if (getImage() == corpse) {
+            health = 0;
+        }   
     }
 
     void checkShoot() {
@@ -261,6 +213,72 @@ public class Raku extends Actor
         getWorld().showText("Gold: " + gold, 110, 45);
     }
 
+    void swingManagement() {
+        if (swingTimer <= 50) {
+            swingTimer += 1;   
+        }
+
+        if (swingTimer <= 9) {
+            turn(10);
+        }
+
+        if (swingTimer == 10) {
+            setRotation(0);
+            setImage(run1);
+        }
+    }
+
+    void fireballManagement() {
+        if (launchTimer <= 255) {
+            launchTimer += 1;
+        }
+
+        if (launchTimer == 15) {
+            setImage(run1);
+        }
+    }
+
+    void vulnerabilityManagement() {
+
+        if (vulnerability >= 255) {
+            hitByEnemy();
+            hitBySnake();
+            hitBySpider();
+        }
+
+        if (vulnerability <= 255) {
+            vulnerability += 3;
+        }
+
+        if (vulnerability >= 256) {
+            vulnerability = 255;
+        }   
+
+        getImage().setTransparency(vulnerability);
+    }
+
+    void leleManagement() {
+        if (leleTimer == 255 && Greenfoot.isKeyDown("q")) {
+            activateLele();
+        }
+
+        if (leleIsActive == true) {
+            vulnerability = 30;
+            leleCoolDown -= 1;
+        }
+
+        if (leleCoolDown == 0) {
+            leleCoolDown = 400;
+            leleIsActive = false;
+        }   
+    }
+
+    void vaerminaManagement() {
+        if (vaerminaTimer == 255 && Greenfoot.isKeyDown("e")) {
+            activeVaermina();
+        }   
+    }
+
     void enteredStorm()
     {
         if ((getX() <= 10 || getX() >= 690 || getY() >= 740 || getY() <= 70) && timeAlive % 15 == 0) 
@@ -300,7 +318,7 @@ public class Raku extends Actor
                 setLocation(getX(), getY()-2);
             } else
             {
-                setLocation(getX(), getY()-4);   
+                setLocation(getX(), getY()-3);   
             }
 
             animate(2);
@@ -424,7 +442,7 @@ public class Raku extends Actor
     void activeVaermina() {
         vaerminaTimer = 0;
         takeDamage(50, true);
-        
+
         gold -= 1000;
     }
 

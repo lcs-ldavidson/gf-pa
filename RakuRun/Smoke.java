@@ -6,8 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Smoke extends Actor
+public class Smoke extends Boss
 {
+    
 
     GreenfootImage smoke1;
     GreenfootImage smoke2;
@@ -82,5 +83,5 @@ public class Smoke extends Actor
                 setImage(smoke1);
             }
         }
-    }
+    }    
 }

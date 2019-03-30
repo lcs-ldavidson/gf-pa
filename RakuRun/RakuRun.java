@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class RakuRun extends Actor
+public class RakuRun extends Text
 {
     int timeElapsed;
     int movement;
@@ -31,5 +31,5 @@ public class RakuRun extends Actor
         if (isAtEdge()) {
          getWorld().removeObject(this);   
         }
-    }    
+    }
 }

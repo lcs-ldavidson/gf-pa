@@ -6,14 +6,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Eyes extends Actor
-{
-    int transparency;
+public class Eyes extends Effects
+{int transparency;
 
     public Eyes() {
         transparency = 0;
     }
-    
+
     public void act() 
     {
         if (transparency <= 253) {

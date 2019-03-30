@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Lele extends Actor
+public class Lele extends Support
 {
     GreenfootImage lele1;
     GreenfootImage lele2;
@@ -33,7 +33,7 @@ public class Lele extends Actor
         if (timeElapsed == 0) {
             setRotation(-90);
         }
-        
+
         if (timeElapsed % 3 == 0) {
 
             if (getImage() == lele1) {

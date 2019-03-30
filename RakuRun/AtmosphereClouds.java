@@ -6,8 +6,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class AtmosphereClouds extends Actor
+public class AtmosphereClouds extends Effects
 {
+    /**
+     * Act - do whatever the AtmosphereClouds wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+
     int speed;
     int wiggle;
 
@@ -27,9 +32,7 @@ public class AtmosphereClouds extends Actor
         {
             getWorld().removeObject(this);   
         }
-        
-        
 
     }    
-    
-}
+}    
+

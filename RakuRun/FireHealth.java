@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FireHealth extends Actor
+public class FireHealth extends Effects
 {
 
     GreenfootImage fire1;

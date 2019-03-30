@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class skollack extends Actor
+public class skollack extends Boss
 {
 
     GreenfootImage image1;
@@ -35,8 +35,8 @@ public class skollack extends Actor
         changeDrift();
         drift();
         correctPosition();
-        timeElapsed += 1;
         turnTowards(((Paluno)getWorld()).raku1.getX(), ((Paluno)getWorld()).raku1.getY());
+        timeElapsed += 1;
     }    
 
     void animate() {
@@ -65,7 +65,7 @@ public class skollack extends Actor
     }
 
     void changeDrift() {
-        if (timeElapsed % 30 == 0) {
+        if (timeElapsed % 50 == 0) {
             driftSpeed = Greenfoot.getRandomNumber(10) - 5;
         }
     }
@@ -78,10 +78,10 @@ public class skollack extends Actor
         if (getX() <= 90) {
             driftSpeed = 5;
         }
-        
+
         if (getX() >= 610) {
             driftSpeed = -5;
         }
 
-            }
     }
+}

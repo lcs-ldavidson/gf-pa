@@ -46,55 +46,15 @@ public class Paluno extends World
     {
 
         createTerrain();
-        timeElapsed = timeElapsed + 1;
         createParticle();
         spawnEnemy();
+        spawnThreats();
         createGold();
         createPotion();
         createCloud();
-
-        if (difficulty >= 1) {
-            spawnSpider();
-        }
-        if (difficulty >= 2){
-            spawnSnake();
-        }
-        if (difficulty >= 5) {
-            spawnLightning();
-        }
-
-        if (raku1.getImage() == raku1.corpse && timeElapsed % 4 == 0 && endTimer < 250) {
-            addObject(new EndCloud(), Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
-        }
-
-        if (timeElapsed % 600 == 0) {
-            difficulty += 1;
-        }
-
-        if (raku1.getImage() == raku1.corpse) {
-            endTimer += 1;
-        }
-
-        if (endTimer == 50) {
-            addObject(new FinalGold(), 350, 110);
-        }
-
-        if (endTimer == 75) {
-            addObject(new FinalKills(), 350, 210);
-        }
-
-        if (endTimer == 80) {
-            addObject(new FinalScore(), 350, 750);
-        }
-
-        if (endTimer == 75) {
-            addObject(new endSkollack(), 350, 799);
-        }
-
-        if (endTimer == 130) {
-            addObject(new Eyes(), 350, 625);
-        }
-
+        increaseDifficulty();
+        endScreen();
+        timeElapsed = timeElapsed + 1;
     }
 
     void createGold() {
@@ -116,6 +76,24 @@ public class Paluno extends World
         if (Greenfoot.getRandomNumber(100) < 4)
         {
             addObject(new Monster(), Greenfoot.getRandomNumber(700), 1);   
+        }
+    }
+
+    void spawnThreats() {
+        if (difficulty >= 1) {
+            spawnSpider();
+        }
+        if (difficulty >= 2){
+            spawnSnake();
+        }
+        if (difficulty >= 5) {
+            spawnLightning();
+        }
+    }
+
+    void increaseDifficulty() {
+        if (timeElapsed % 600 == 0) {
+            difficulty += 1;
         }
     }
 
@@ -343,17 +321,39 @@ public class Paluno extends World
         addObject(new fireGauge(), 610, gaugeY);
         addObject(new fireSwirl(), 610, gaugeY);
         addObject(new readyFlare(), 610, gaugeY + 10);
-        
+
         addObject(new Tentacles(), 1, 1);
         addObject(new Smoke(), 1, 1);
     }
 
-    public int rakuX() {
-        return raku1.getX();
-    }
+    void endScreen() {
+        if (raku1.getImage() == raku1.corpse && timeElapsed % 4 == 0 && endTimer < 250) {
+            addObject(new EndCloud(), Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
+        }
 
-    public int rakuY() {
-        return raku1.getY();
+        if (raku1.getImage() == raku1.corpse) {
+            endTimer += 1;
+        }
+
+        if (endTimer == 50) {
+            addObject(new FinalGold(), 350, 110);
+        }
+
+        if (endTimer == 75) {
+            addObject(new FinalKills(), 350, 210);
+        }
+
+        if (endTimer == 80) {
+            addObject(new FinalScore(), 350, 750);
+        }
+
+        if (endTimer == 75) {
+            addObject(new endSkollack(), 350, 799);
+        }
+
+        if (endTimer == 130) {
+            addObject(new Eyes(), 350, 625);
+        }   
     }
 
 }

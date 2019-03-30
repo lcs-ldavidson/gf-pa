@@ -6,12 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FinalScore extends Actor
-{
-    int timeElapsed;
+public class FinalScore extends Text
+{int timeElapsed;
     int runningKills;
     int transparency;
-    
+
     public FinalScore() {
         runningKills = 0;
         transparency = 0;
@@ -30,13 +29,13 @@ public class FinalScore extends Actor
             runningKills = (((Paluno)getWorld()).raku1.kills * 10) + ((Paluno)getWorld()).raku1.gold;
 
         }    
-        
+
         transparency += 5;
-        
+
         if (transparency >= 255) {
             transparency = 255;
         }
-        
+
         getImage().setTransparency(transparency);
     }
 }

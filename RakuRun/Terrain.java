@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Terrain extends Actor
+public class Terrain extends Effects
 {
     /**
      * Act - do whatever the Terrain wants to do. This method is called whenever

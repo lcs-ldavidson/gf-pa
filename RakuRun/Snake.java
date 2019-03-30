@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Snake extends Actor
+public class Snake extends Threats
 {
 
     GreenfootImage monster1;
@@ -29,7 +29,6 @@ public class Snake extends Actor
     {
         timeElapsed = 0;
 
-        
         monster1 = new GreenfootImage("snake1.png");
         monster2 = new GreenfootImage("snake2.png");
         monster3 = new GreenfootImage("snake3.png");

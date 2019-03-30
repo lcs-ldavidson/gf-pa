@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class vaerminaHead extends Actor
+public class vaerminaHead extends Support
 {
     int transparency;
 
@@ -21,7 +21,7 @@ public class vaerminaHead extends Actor
         } else {
             setImage("vaerminaHead.png");
         }
-        
+
         transparency = ((Paluno)getWorld()).raku1.vaerminaTimer;
         getImage().setTransparency(transparency);
     }    

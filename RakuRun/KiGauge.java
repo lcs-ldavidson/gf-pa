@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class KiGauge extends Actor
+public class KiGauge extends Effects
 {
     int transparency;
 
@@ -18,7 +18,6 @@ public class KiGauge extends Actor
     {
         transparency = ((Paluno)getWorld()).raku1.currentTP() ;
 
-        
 
         setImage("kiGauge.png");
         getImage().setTransparency(transparency / 2);

@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GoldShow extends Actor
+public class GoldShow extends Text
 {
 
     int transparency;
@@ -29,11 +29,11 @@ public class GoldShow extends Actor
         setImage(new GreenfootImage("+" + damageText, (transparency / 3), new Color(255, 255, 0, transparency), new Color(0, 0, 0, 0), Color.BLACK));
 
         setLocation(getX(), getY() + 2);
-        
+
         if (transparency <= 0)
         {
             getWorld().removeObject(this);
         }
-       
+
     }    
 }
