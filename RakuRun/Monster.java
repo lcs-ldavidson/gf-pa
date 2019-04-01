@@ -50,6 +50,10 @@ public class Monster extends Threats
         if (Greenfoot.getRandomNumber(100) <= 30) {
             move(((Paluno)getWorld()).difficulty / 2);   
         }
+        
+        if (isTouching(Raku.class)) {
+                knockBack(getOneIntersectingObject(Raku.class).getX(), getOneIntersectingObject(Raku.class).getY(), 3);
+            }
 
         if (this != null) {
             hitBySword();
@@ -93,6 +97,12 @@ public class Monster extends Threats
             getWorld().removeObject(this);
         }
 
+    }
+    
+    void knockBack(int x, int y, int severity) {
+        turnTowards(x, y);
+        move(-severity);
+        
     }
 
 }

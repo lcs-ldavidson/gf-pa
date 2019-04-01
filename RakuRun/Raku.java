@@ -31,6 +31,7 @@ public class Raku extends Actor
     int vaerminaTimer;
     boolean leleIsActive;
     int leleCoolDown;
+    
 
     public Raku()
     {
@@ -55,6 +56,7 @@ public class Raku extends Actor
         vaerminaTimer = 100;
         leleIsActive = false;
         leleCoolDown = 400;
+        
     }
 
     public void act() 
@@ -64,7 +66,7 @@ public class Raku extends Actor
             enteredStorm();
             control();
             showKills();
-            die();
+
             hitByLightning();
             showGold();
             collectGold(Greenfoot.getRandomNumber(100) + 1);
@@ -78,8 +80,22 @@ public class Raku extends Actor
             leleManagement();
             vaerminaManagement();
             hitByMagic();
+            
+            if (isTouching(Monster.class)) {
+                knockBack(getOneIntersectingObject(Monster.class).getX(), getOneIntersectingObject(Monster.class).getY(), 5);
+            }
+            
+            if (isTouching(Spider.class)) {
+                knockBack(getOneIntersectingObject(Spider.class).getX(), getOneIntersectingObject(Spider.class).getY(), 5);
+            }
+            
+            if (isTouching(Snake.class)) {
+                knockBack(getOneIntersectingObject(Snake.class).getX(), getOneIntersectingObject(Snake.class).getY(), 5);
+            }
 
         }
+
+        die();
 
         timeAlive = timeAlive + 1;
     }
@@ -182,7 +198,7 @@ public class Raku extends Actor
 
     void hitByEnemy()
     {
-        if (isTouching(Monster.class) && timeAlive % 15 == 0)
+        if (isTouching(Monster.class))
         {
             takeDamage(Greenfoot.getRandomNumber(20) + 1, false);
         }
@@ -287,7 +303,7 @@ public class Raku extends Actor
             takeDamage(Greenfoot.getRandomNumber(6) + 1, false);
         }
     }
-    
+
     void hitByMagic() {
         if (isTouching(Magic.class) && vulnerability >= 200) {
             takeDamage(Greenfoot.getRandomNumber(4) + 1, false);
@@ -455,6 +471,12 @@ public class Raku extends Actor
         getWorld().addObject(new Rex(), getX(), 800);
 
         gold -= 1000;
+    }
+
+    void knockBack(int x, int y, int severity) {
+        turnTowards(x, y);
+        move(-severity);
+        setRotation(0);
     }
 
 }
