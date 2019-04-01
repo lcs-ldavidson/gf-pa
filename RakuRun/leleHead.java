@@ -8,12 +8,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class leleHead extends Support
 {
-    /**
-     * Act - do whatever the leleHead wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    int transparency;
+
+    public leleHead() {
+        transparency = 0;
+    }
+
     public void act() 
     {
-        // Add your action code here.
+        if (transparency == 255) {
+            setImage("leleShine.png");
+        } else {
+            setImage("leleHead.png");
+        }
+
+        transparency = ((Paluno)getWorld()).raku1.leleTimer;
+        getImage().setTransparency(transparency);
     }    
 }

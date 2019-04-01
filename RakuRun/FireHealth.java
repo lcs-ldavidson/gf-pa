@@ -47,7 +47,7 @@ public class FireHealth extends Effects
             transparency = 254;
         }
 
-        if (timeElapsed % 3 == 0) {
+        if (timeElapsed % 5 == 0) {
 
             whichImage = Greenfoot.getRandomNumber(5) + 1;
 
@@ -73,6 +73,10 @@ public class FireHealth extends Effects
 
         }
 
+        if (stretch <= 1) {
+            stretch = 1;
+        }
+        
         getImage().scale(stretch, 58);
         timeElapsed += 1;
         getImage().setTransparency(transparency);

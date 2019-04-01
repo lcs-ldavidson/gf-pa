@@ -442,6 +442,7 @@ public class Raku extends Actor
     void activeVaermina() {
         vaerminaTimer = 0;
         takeDamage(50, true);
+        getWorld().addObject(new Rex(), getX(), 800);
 
         gold -= 1000;
     }

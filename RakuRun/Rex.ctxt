@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Rex
+comment0.text=\n\ Write\ a\ description\ of\ class\ Rex\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=Rex()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ animate()
+comment4.params=amount
+comment4.target=void\ rexCollect(int)
+numComments=5

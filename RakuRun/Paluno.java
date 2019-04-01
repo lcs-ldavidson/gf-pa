@@ -16,6 +16,9 @@ public class Paluno extends World
     int difficulty;
     public Blade blade1 = new Blade();
     public skollack skollack1 = new skollack();
+    public Smoke smoke1 = new Smoke();
+    public Tentacles tentacles1 = new Tentacles();
+    public int skollackHealth;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -30,14 +33,15 @@ public class Paluno extends World
         Greenfoot.setSpeed(50);
         difficulty = 0;
         endTimer = 0;
-
+        skollackHealth = 3;
+ 
         setPaintOrder(RakuRun.class,  OpenerImage.class, skollackOpener.class, 
             FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
             Blade.class, Eyes.class, endSkollack.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, 
             leleHead.class, vaerminaHead.class, Interface.class, 
             AtmosphereClouds.class, Lele.class, Cloud.class, 
-            Particle.class, skollack.class, Snake.class, 
+            Particle.class, skollack.class, Rex.class, Snake.class, 
             Spider.class, Monster.class, TeleportEffect.class, Raku.class, Tentacles.class, Smoke.class,
             Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
@@ -172,12 +176,9 @@ public class Paluno extends World
         addObject(Interface1,350,450);
 
         addObject(raku1,350,650);
-        addObject(skollack1, 350, 180);
 
         addObject(new RakuRun(), 350, 170);
-
         addObject(new OpenerImage(), 490, 580);
-
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
         addObject(new startCloud(),Greenfoot.getRandomNumber(700), Greenfoot.getRandomNumber(800));
@@ -324,6 +325,8 @@ public class Paluno extends World
 
         addObject(new Tentacles(), 1, 1);
         addObject(new Smoke(), 1, 1);
+
+        addObject(skollack1, 350, 180);
     }
 
     void endScreen() {
@@ -356,4 +359,9 @@ public class Paluno extends World
         }   
     }
 
+    void summonSkollack() {
+        addObject(skollack1, 350, 180);
+        addObject(smoke1, 350, 180);
+        addObject(tentacles1, 350, 180);
+    }
 }
