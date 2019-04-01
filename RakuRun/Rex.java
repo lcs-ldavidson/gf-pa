@@ -13,23 +13,34 @@ public class Rex extends Support
     GreenfootImage rex3;
     GreenfootImage rex4;
     int timeElapsed;
+    int transparency;
 
     public Rex() {
         rex1 = new GreenfootImage("rex1.png");
         rex2 = new GreenfootImage("rex2.png");
         rex3 = new GreenfootImage("rex1.png");
         rex4 = new GreenfootImage("rex3.png");
-
         setImage(rex1);
+        transparency = 0;
+        getImage().setTransparency(transparency);
+
     }
 
     public void act() 
     {
+        getImage().setTransparency(transparency);
         setLocation(getX(), getY() - 3 );
         rexCollect(Greenfoot.getRandomNumber(100) + 1);
         animate();
+        if (isTouching(Monster.class) || isTouching(Snake.class) || isTouching(Spider.class)) {
+            hitMonster();
+        }
         timeElapsed += 1;
-        
+        transparency += 2;
+        if (transparency >= 255) {
+            transparency = 255;
+        }
+
         if (isAtEdge()) {
             getWorld().removeObject(this);
         }
@@ -59,7 +70,7 @@ public class Rex extends Support
             }
         }
     }
-    
+
     void rexCollect(int amount) {
         if (isTouching(Gold.class)) {
             removeTouching(Gold.class);
@@ -71,5 +82,14 @@ public class Rex extends Support
         }
     }
 
-    
+    void hitMonster() {
+        removeTouching(Monster.class);
+        removeTouching(Snake.class);
+        removeTouching(Spider.class);
+        ((Paluno)getWorld()).raku1.kills += 1;
+        if (((Paluno)getWorld()).raku1.leleTimer < 255) {
+            ((Paluno)getWorld()).raku1.leleTimer += 5;
+        }
+    }
+
 }

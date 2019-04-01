@@ -7,4 +7,6 @@ comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ hitMonster()
-numComments=4
+comment4.params=
+comment4.target=void\ bounce()
+numComments=5

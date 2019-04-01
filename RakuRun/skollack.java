@@ -24,13 +24,21 @@ public class skollack extends Boss
         image4 = new GreenfootImage("skollack3.png");
         driftSpeed = Greenfoot.getRandomNumber(10) - 5;
         paluno = (Paluno) getWorld();
-
+        timeElapsed = 0;
         setImage(image1);
+
 
     }
 
     public void act() 
     {
+
+        if (timeElapsed == 0) {
+            ((Paluno)getWorld()).addObject(((Paluno)getWorld()).tentacles1, 1, 1);
+            ((Paluno)getWorld()).addObject(((Paluno)getWorld()).smoke1, 1, 1);
+            ((Paluno)getWorld()).addObject(((Paluno)getWorld()).barrier1, 1, 1);
+        }
+
         animate();
         changeDrift();
         drift();
@@ -82,6 +90,14 @@ public class skollack extends Boss
         if (getX() >= 610) {
             driftSpeed = -5;
         }
+
+    }
+
+    void teleportAway() {
+        getWorld().removeObject(this);
+        getWorld().removeObject(((Paluno)getWorld()).tentacles1);
+        getWorld().removeObject(((Paluno)getWorld()).smoke1);
+        getWorld().removeObject(((Paluno)getWorld()).barrier1);
 
     }
 }

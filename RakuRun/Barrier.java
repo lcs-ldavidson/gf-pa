@@ -8,12 +8,30 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Barrier extends Boss
 {
-    /**
-     * Act - do whatever the Barrier wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    int transparency;
+
+    public Barrier() {
+        transparency = 0;
+    }
+
     public void act() 
     {
-        // Add your action code here.
+        getImage().setTransparency(transparency);
+        setLocation(((Paluno)getWorld()).skollack1.getX(), ((Paluno)getWorld()).skollack1.getY() + 30);
+        manageTransparency();
+        if(isTouching(Fireball.class)) {
+            deflect();
+        }
     }    
+
+    void manageTransparency() {
+        if (transparency >= 1) {
+            transparency -= 1;
+        }
+    }
+
+    void deflect() {
+        transparency = 255;
+
+    }
 }

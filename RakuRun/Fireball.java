@@ -13,6 +13,7 @@ public class Fireball extends Actor
     GreenfootImage fire2;
     int timeElapsed;
     int size;
+    int angle;
 
     public Fireball(int direction) {
         setRotation(direction);
@@ -34,6 +35,10 @@ public class Fireball extends Actor
 
         removeTouching(AtmosphereClouds.class);
         removeTouching(Particle.class);
+
+        if (isTouching(Barrier.class)) {
+            bounce();
+        }
 
         if (getImage() == fire1) {
             getImage().scale(40 + size, 20 + size);
@@ -71,6 +76,12 @@ public class Fireball extends Actor
         if (((Paluno)getWorld()).raku1.leleTimer < 255) {
             ((Paluno)getWorld()).raku1.leleTimer += 5;
         }
+    }
+
+    void bounce() {
+        angle = getRotation();
+
+        setRotation(0 - angle);
     }
 
 }

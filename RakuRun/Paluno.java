@@ -19,6 +19,7 @@ public class Paluno extends World
     public Smoke smoke1 = new Smoke();
     public Tentacles tentacles1 = new Tentacles();
     public int skollackHealth;
+    public Barrier barrier1 = new Barrier();
 
     /**
      * Constructor for objects of class MyWorld.
@@ -41,7 +42,7 @@ public class Paluno extends World
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, 
             leleHead.class, vaerminaHead.class, Interface.class, 
             AtmosphereClouds.class, Lele.class, Cloud.class, 
-            Particle.class, skollack.class, Rex.class, Snake.class, 
+            Particle.class, Barrier.class, skollack.class, Rex.class, Snake.class, 
             Spider.class, Monster.class, TeleportEffect.class, Raku.class, Tentacles.class, Smoke.class,
             Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
@@ -322,9 +323,6 @@ public class Paluno extends World
         addObject(new fireGauge(), 610, gaugeY);
         addObject(new fireSwirl(), 610, gaugeY);
         addObject(new readyFlare(), 610, gaugeY + 10);
-
-        addObject(new Tentacles(), 1, 1);
-        addObject(new Smoke(), 1, 1);
 
         addObject(skollack1, 350, 180);
     }
