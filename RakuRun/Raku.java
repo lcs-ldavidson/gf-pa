@@ -77,6 +77,7 @@ public class Raku extends Actor
             healthManagement();
             leleManagement();
             vaerminaManagement();
+            hitByMagic();
 
         }
 
@@ -284,6 +285,15 @@ public class Raku extends Actor
         if ((getX() <= 10 || getX() >= 690 || getY() >= 740 || getY() <= 70) && timeAlive % 15 == 0) 
         {
             takeDamage(Greenfoot.getRandomNumber(6) + 1, false);
+        }
+    }
+    
+    void hitByMagic() {
+        if (isTouching(Magic.class) && vulnerability >= 200) {
+            takeDamage(Greenfoot.getRandomNumber(4) + 1, false);
+            if (vulnerability > 200) {
+                vulnerability -= 20;
+            }
         }
     }
 

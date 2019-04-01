@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Lightning extends Threats
-{int timeElapsed;
+{   int timeElapsed;
     int rightOrLeftOrUp;
     GreenfootImage image1;
     GreenfootImage image2;
@@ -38,7 +38,7 @@ public class Lightning extends Threats
             turnTowards(((Paluno)getWorld()).raku1.getX(), ((Paluno)getWorld()).raku1.getY());
         }
 
-        if (timeElapsed >= 120) {
+        if (timeElapsed >= 150) {
             move(30);
         }
 

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Magic
+comment0.text=\n\ Write\ a\ description\ of\ class\ Magic\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=shot
+comment1.target=Magic(int)
+comment2.params=
+comment2.target=void\ act()
+numComments=3

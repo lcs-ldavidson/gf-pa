@@ -27,17 +27,13 @@ public class skollack extends Boss
         timeElapsed = 0;
         setImage(image1);
 
+        
 
     }
 
     public void act() 
     {
 
-        if (timeElapsed == 0) {
-            ((Paluno)getWorld()).addObject(((Paluno)getWorld()).tentacles1, 1, 1);
-            ((Paluno)getWorld()).addObject(((Paluno)getWorld()).smoke1, 1, 1);
-            ((Paluno)getWorld()).addObject(((Paluno)getWorld()).barrier1, 1, 1);
-        }
 
         animate();
         changeDrift();
@@ -45,6 +41,15 @@ public class skollack extends Boss
         correctPosition();
         turnTowards(((Paluno)getWorld()).raku1.getX(), ((Paluno)getWorld()).raku1.getY());
         timeElapsed += 1;
+
+        if (Greenfoot.getRandomNumber(500) <= 3) {
+            attack();
+        }
+
+        if (intersects(((Paluno)getWorld()).raku1) && ((Paluno)getWorld()).raku1.getImage() == ((Paluno)getWorld()).raku1.swinger
+        && ((Paluno)getWorld()).skollackHealth != 1) {
+            teleportAway();
+        }
     }    
 
     void animate() {
@@ -94,10 +99,21 @@ public class skollack extends Boss
     }
 
     void teleportAway() {
-        getWorld().removeObject(this);
+
         getWorld().removeObject(((Paluno)getWorld()).tentacles1);
         getWorld().removeObject(((Paluno)getWorld()).smoke1);
         getWorld().removeObject(((Paluno)getWorld()).barrier1);
+        ((Paluno)getWorld()).skollackHealth -= 1;
+        ((Paluno)getWorld()).bossCanBeSummoned = true;
+        getWorld().removeObjects(getObjectsInRange(300, Magic.class));
+        
+        getWorld().removeObject(this);
 
+    }
+
+    void attack() {
+        getWorld().addObject(new Magic(1), getX(), getY() - 30);
+        getWorld().addObject(new Magic(2), getX() + 40, getY());
+        getWorld().addObject(new Magic(3), getX() - 40, getY());
     }
 }

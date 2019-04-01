@@ -25,13 +25,13 @@ public class Barrier extends Boss
     }    
 
     void manageTransparency() {
-        if (transparency >= 1) {
-            transparency -= 1;
+        if (transparency >= 3) {
+            transparency -= 3;
         }
     }
 
     void deflect() {
-        transparency = 255;
+        transparency = 200;
 
     }
 }

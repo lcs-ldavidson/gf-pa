@@ -14,11 +14,13 @@ public class Fireball extends Actor
     int timeElapsed;
     int size;
     int angle;
+    boolean canBounce;
 
     public Fireball(int direction) {
         setRotation(direction);
         fire1 = new GreenfootImage("fireball1.PNG");
         fire2 = new GreenfootImage("fireball2.PNG");
+        canBounce = true;
 
         timeElapsed = 0;
         setImage(fire1);
@@ -79,9 +81,11 @@ public class Fireball extends Actor
     }
 
     void bounce() {
-        angle = getRotation();
-
-        setRotation(0 - angle);
+        if (canBounce == true) {
+            angle = getRotation();
+            setRotation(0 - angle);
+            canBounce = false;
+        }
     }
 
 }

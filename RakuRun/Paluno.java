@@ -20,6 +20,8 @@ public class Paluno extends World
     public Tentacles tentacles1 = new Tentacles();
     public int skollackHealth;
     public Barrier barrier1 = new Barrier();
+    boolean bossCanBeSummoned = true;
+    public int skollackTimer;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -35,14 +37,15 @@ public class Paluno extends World
         difficulty = 0;
         endTimer = 0;
         skollackHealth = 3;
- 
+        skollackTimer = 0;
+
         setPaintOrder(RakuRun.class,  OpenerImage.class, skollackOpener.class, 
             FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
             Blade.class, Eyes.class, endSkollack.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, 
             leleHead.class, vaerminaHead.class, Interface.class, 
             AtmosphereClouds.class, Lele.class, Cloud.class, 
-            Particle.class, Barrier.class, skollack.class, Rex.class, Snake.class, 
+            Particle.class, Magic.class, Barrier.class, skollack.class, Rex.class, Snake.class, 
             Spider.class, Monster.class, TeleportEffect.class, Raku.class, Tentacles.class, Smoke.class,
             Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
@@ -58,6 +61,14 @@ public class Paluno extends World
         createPotion();
         createCloud();
         increaseDifficulty();
+        if (skollackTimer == 1000) {
+            spawnSkollack();
+            skollackTimer = 0;
+        }
+        
+        if (bossCanBeSummoned == true) {
+            skollackTimer += 1;
+        } 
         endScreen();
         timeElapsed = timeElapsed + 1;
     }
@@ -124,6 +135,14 @@ public class Paluno extends World
         {
             addObject(new Snake(), Greenfoot.getRandomNumber(700), 1);   
         }
+    }
+
+    void spawnSkollack() {
+        addObject(skollack1, 350, 180);
+        addObject(tentacles1, 1, 1);
+        addObject(smoke1, 1, 1);
+        addObject(barrier1, 1, 1);
+        bossCanBeSummoned = false;
     }
 
     void createTerrain()
@@ -324,7 +343,6 @@ public class Paluno extends World
         addObject(new fireSwirl(), 610, gaugeY);
         addObject(new readyFlare(), 610, gaugeY + 10);
 
-        addObject(skollack1, 350, 180);
     }
 
     void endScreen() {
@@ -357,9 +375,4 @@ public class Paluno extends World
         }   
     }
 
-    void summonSkollack() {
-        addObject(skollack1, 350, 180);
-        addObject(smoke1, 350, 180);
-        addObject(tentacles1, 350, 180);
-    }
 }
