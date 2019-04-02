@@ -17,4 +17,6 @@ comment7.params=
 comment7.target=void\ teleportAway()
 comment8.params=
 comment8.target=void\ attack()
-numComments=9
+comment9.params=
+comment9.target=void\ puff()
+numComments=10

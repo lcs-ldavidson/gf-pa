@@ -45,7 +45,7 @@ public class Paluno extends World
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, 
             leleHead.class, vaerminaHead.class, Interface.class, 
             AtmosphereClouds.class, Lele.class, Cloud.class, 
-            Particle.class, Magic.class, Barrier.class, skollack.class, Rex.class, Snake.class, 
+            Particle.class, Magic.class, Barrier.class, teleportParticle.class, skollack.class, Rex.class, Snake.class, 
             Spider.class, Monster.class, TeleportEffect.class, Raku.class, Tentacles.class, Smoke.class,
             Fireball.class, Potion.class, Gold.class, Terrain.class);
     }
@@ -62,10 +62,11 @@ public class Paluno extends World
         createCloud();
         increaseDifficulty();
         if (skollackTimer == 1000) {
+            
             spawnSkollack();
             skollackTimer = 0;
         }
-        
+
         if (bossCanBeSummoned == true) {
             skollackTimer += 1;
         } 
@@ -142,6 +143,48 @@ public class Paluno extends World
         addObject(tentacles1, 1, 1);
         addObject(smoke1, 1, 1);
         addObject(barrier1, 1, 1);
+        
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        addObject(new teleportParticle(), 350, 180);
+        
         bossCanBeSummoned = false;
     }
 

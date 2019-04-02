@@ -31,7 +31,6 @@ public class Raku extends Actor
     int vaerminaTimer;
     boolean leleIsActive;
     int leleCoolDown;
-    
 
     public Raku()
     {
@@ -56,7 +55,7 @@ public class Raku extends Actor
         vaerminaTimer = 100;
         leleIsActive = false;
         leleCoolDown = 400;
-        
+
     }
 
     public void act() 
@@ -66,7 +65,6 @@ public class Raku extends Actor
             enteredStorm();
             control();
             showKills();
-
             hitByLightning();
             showGold();
             collectGold(Greenfoot.getRandomNumber(100) + 1);
@@ -80,15 +78,15 @@ public class Raku extends Actor
             leleManagement();
             vaerminaManagement();
             hitByMagic();
-            
+
             if (isTouching(Monster.class)) {
                 knockBack(getOneIntersectingObject(Monster.class).getX(), getOneIntersectingObject(Monster.class).getY(), 5);
             }
-            
+
             if (isTouching(Spider.class)) {
                 knockBack(getOneIntersectingObject(Spider.class).getX(), getOneIntersectingObject(Spider.class).getY(), 5);
             }
-            
+
             if (isTouching(Snake.class)) {
                 knockBack(getOneIntersectingObject(Snake.class).getX(), getOneIntersectingObject(Snake.class).getY(), 5);
             }
@@ -257,7 +255,7 @@ public class Raku extends Actor
 
     void vulnerabilityManagement() {
 
-        if (vulnerability >= 255) {
+        if (vulnerability >= 255 && getImage() != swinger) {
             hitByEnemy();
             hitBySnake();
             hitBySpider();
@@ -474,9 +472,11 @@ public class Raku extends Actor
     }
 
     void knockBack(int x, int y, int severity) {
-        turnTowards(x, y);
-        move(-severity);
-        setRotation(0);
+        if (getImage() != swinger) {
+            turnTowards(x, y);
+            move(-severity);
+            setRotation(0);
+        }
     }
 
 }
