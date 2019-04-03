@@ -44,6 +44,10 @@ public class skollack extends Boss
         if (Greenfoot.getRandomNumber(500) <= 3) {
             attack();
         }
+        
+        if (Greenfoot.getRandomNumber(400) <= 1 && ((Paluno)getWorld()).skollackHealth <= 2) {
+            blow();
+        }
 
         if (intersects(((Paluno)getWorld()).raku1) && ((Paluno)getWorld()).raku1.getImage() == ((Paluno)getWorld()).raku1.swinger
         && ((Paluno)getWorld()).skollackHealth != 1) {
@@ -98,7 +102,7 @@ public class skollack extends Boss
     }
 
     void teleportAway() {
-        Greenfoot.delay(100);
+        
         puff();
         getWorld().removeObject(((Paluno)getWorld()).tentacles1);
         getWorld().removeObject(((Paluno)getWorld()).smoke1);
@@ -149,5 +153,37 @@ public class skollack extends Boss
         getWorld().addObject(new teleportParticle(), getX(), getY());
         getWorld().addObject(new teleportParticle(), getX(), getY());
         getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(), getX(), getY());
+    }
+    
+    void blow() {
+        getWorld().addObject(new windBlast(), ((Paluno)getWorld()).skollack1.getX(), 430);
     }
 }

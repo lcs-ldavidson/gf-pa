@@ -45,9 +45,9 @@ public class Paluno extends World
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, 
             leleHead.class, vaerminaHead.class, Interface.class, 
             AtmosphereClouds.class, Lele.class, Cloud.class, 
-            Particle.class, Magic.class, Barrier.class, teleportParticle.class, skollack.class, Rex.class, Snake.class, 
+            Particle.class, Magic.class, Barrier.class, teleportParticle.class, windBlast.class, skollack.class, Rex.class, Snake.class, 
             Spider.class, Monster.class, TeleportEffect.class, Raku.class, Tentacles.class, Smoke.class,
-            Fireball.class, Potion.class, Gold.class, Terrain.class);
+            Fireball.class, Dust.class, Potion.class, Gold.class, Terrain.class);
     }
 
     public void act()

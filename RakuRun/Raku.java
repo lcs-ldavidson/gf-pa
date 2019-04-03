@@ -78,6 +78,7 @@ public class Raku extends Actor
             leleManagement();
             vaerminaManagement();
             hitByMagic();
+            blownBack();
 
             if (isTouching(Monster.class)) {
                 knockBack(getOneIntersectingObject(Monster.class).getX(), getOneIntersectingObject(Monster.class).getY(), 5);
@@ -476,6 +477,12 @@ public class Raku extends Actor
             turnTowards(x, y);
             move(-severity);
             setRotation(0);
+        }
+    }
+    
+    void blownBack() {
+        if (isTouching(windBlast.class)) {
+            setLocation(getX(), getY() + 4);
         }
     }
 
