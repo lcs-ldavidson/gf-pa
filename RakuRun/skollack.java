@@ -34,6 +34,11 @@ public class skollack extends Boss
     public void act() 
     {
 
+        if (timeElapsed == 1) {
+            getWorld().removeObjects(getObjectsInRange(300, Particle.class));
+            getWorld().removeObjects(getObjectsInRange(300, AtmosphereClouds.class));
+        }
+        
         animate();
         changeDrift();
         drift();

@@ -15,6 +15,10 @@ public class AtmosphereClouds extends Effects
 
     int speed;
     int wiggle;
+    int collectionX;
+    int collectionY;
+    int selfDestruct;
+    int collect;
 
     public AtmosphereClouds()
     {
@@ -22,13 +26,27 @@ public class AtmosphereClouds extends Effects
         wiggle = Greenfoot.getRandomNumber(8) + 2;
         getImage().setTransparency(100);
         getImage().scale(100, 100);
+        collectionX = 350 + Greenfoot.getRandomNumber(100) - 50;
+        collectionY = 180 + Greenfoot.getRandomNumber(100) - 50;
+        selfDestruct = Greenfoot.getRandomNumber(50);
+        collect = speed + 3;
     }
 
     public void act() 
     {
         setLocation(getX() + Greenfoot.getRandomNumber(wiggle) - (wiggle / 2), getY() + speed); 
 
-        if (getY() == 799)
+        
+        
+        if (((Paluno)getWorld()).portalIsOpening == true) {
+            turnTowards(collectionX, collectionY);
+            move(collect);
+            selfDestruct += 1;
+
+            
+        }
+
+        if (getY() == 799 || selfDestruct >= 140)
         {
             getWorld().removeObject(this);   
         }

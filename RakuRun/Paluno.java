@@ -22,6 +22,7 @@ public class Paluno extends World
     public Barrier barrier1 = new Barrier();
     boolean bossCanBeSummoned = true;
     public int skollackTimer;
+    public boolean portalIsOpening;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -38,6 +39,7 @@ public class Paluno extends World
         endTimer = 0;
         skollackHealth = 3;
         skollackTimer = 0;
+        portalIsOpening = false;
 
         setPaintOrder(RakuRun.class,  OpenerImage.class, skollackOpener.class, 
             FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
@@ -46,7 +48,7 @@ public class Paluno extends World
             leleHead.class, vaerminaHead.class, Interface.class, 
             AtmosphereClouds.class, Lele.class, Cloud.class, 
             Particle.class, Magic.class, Barrier.class, teleportParticle.class, 
-            windBlast.class, skollack.class, Rex.class, Rock.class, Snake.class, 
+            windBlast.class, Portal.class, skollack.class, Rex.class, Rock.class, Snake.class, 
             Spider.class, Monster.class, TeleportEffect.class, Raku.class, Tentacles.class, Smoke.class,
             Fireball.class, Dust.class, Potion.class, Gold.class, Terrain.class);
     }
@@ -64,15 +66,22 @@ public class Paluno extends World
         
         increaseDifficulty();
         if (skollackTimer == 1000) {
-            
             spawnSkollack();
             skollackTimer = 0;
+            removeObjects(getObjects(Particle.class));
+            removeObjects(getObjects(AtmosphereClouds.class));
+        }
+        
+        if (skollackTimer == 745) {
+            addObject(new Portal(), 350, 180);
+            portalIsOpening = true;
         }
 
         if (bossCanBeSummoned == true) {
             skollackTimer += 1;
         } 
         endScreen();
+        
         timeElapsed = timeElapsed + 1;
     }
 
