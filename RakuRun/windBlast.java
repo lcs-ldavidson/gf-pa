@@ -110,7 +110,7 @@ public class windBlast extends Boss
     }    
     
     void blowDust() {
-        if (timeElapsed % 5 == 0) {
+        if (timeElapsed % 5 == 0 && transparency >= 100) {
             getWorld().addObject(new Dust(), getX(), Greenfoot.getRandomNumber(500));
         }
     }

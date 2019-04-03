@@ -83,6 +83,10 @@ public class Raku extends Actor
             if (isTouching(Monster.class)) {
                 knockBack(getOneIntersectingObject(Monster.class).getX(), getOneIntersectingObject(Monster.class).getY(), 5);
             }
+            
+            if (isTouching(Rock.class)) {
+                knockBack(getOneIntersectingObject(Rock.class).getX(), getOneIntersectingObject(Rock.class).getY(), 5);
+            }
 
             if (isTouching(Spider.class)) {
                 knockBack(getOneIntersectingObject(Spider.class).getX(), getOneIntersectingObject(Spider.class).getY(), 5);

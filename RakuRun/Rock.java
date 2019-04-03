@@ -8,15 +8,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Rock extends Actor
 {
-    int size;
+    public int size;
     
     public Rock() {
-        size = Greenfoot.getRandomNumber(200) + 100;
+        size = 50;
     }
     
     public void act() 
     {
         getImage().scale(size, size);
         setLocation(getX(), getY() + 5);
+        
+        if (isAtEdge()) {
+            getWorld().removeObject(this);
+        }
     }    
+    
+    public int getSize() {
+        return size;
+    }
 }
