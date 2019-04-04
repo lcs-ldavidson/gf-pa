@@ -37,6 +37,9 @@ public class skollack extends Boss
         if (timeElapsed == 1) {
             getWorld().removeObjects(getObjectsInRange(300, Particle.class));
             getWorld().removeObjects(getObjectsInRange(300, AtmosphereClouds.class));
+            if (((Paluno)getWorld()).skollackHealth <= 2) {
+            blow();
+        }
         }
         
         animate();
@@ -50,7 +53,7 @@ public class skollack extends Boss
             attack();
         }
         
-        if (Greenfoot.getRandomNumber(400) <= 1 && ((Paluno)getWorld()).skollackHealth <= 2) {
+        if (Greenfoot.getRandomNumber(350) <= 1 && ((Paluno)getWorld()).skollackHealth <= 2) {
             blow();
         }
 
@@ -130,62 +133,62 @@ public class skollack extends Boss
     }
 
     void puff() {
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
-        getWorld().addObject(new teleportParticle(), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
+        getWorld().addObject(new teleportParticle(2), getX(), getY());
     }
     
     void blow() {

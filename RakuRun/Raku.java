@@ -51,8 +51,8 @@ public class Raku extends Actor
         canSwing = true;
         teleportTimer = 0;
         kills = 0;
-        leleTimer = 100;
-        vaerminaTimer = 100;
+        leleTimer = 50;
+        vaerminaTimer = 50;
         leleIsActive = false;
         leleCoolDown = 400;
 
@@ -470,7 +470,7 @@ public class Raku extends Actor
 
     void activeVaermina() {
         vaerminaTimer = 0;
-        takeDamage(50, true);
+        takeDamage(25, true);
         getWorld().addObject(new Rex(), getX(), 800);
 
         gold -= 1000;
