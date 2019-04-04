@@ -23,6 +23,8 @@ public class Paluno extends World
     boolean bossCanBeSummoned = true;
     public int skollackTimer;
     public boolean portalIsOpening;
+    public boolean haveWon;
+    public int winTimer;
 
     /**
      * Constructor for objects of class MyWorld.
