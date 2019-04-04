@@ -41,7 +41,7 @@ public class Paluno extends World
         skollackTimer = 0;
         portalIsOpening = false;
 
-        setPaintOrder(Black.class, RakuRun.class,  OpenerImage.class, skollackOpener.class, 
+        setPaintOrder(Beam.class, Black.class, RakuRun.class,  OpenerImage.class, skollackOpener.class, 
             FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
             Blade.class, Eyes.class, endSkollack.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, 

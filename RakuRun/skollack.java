@@ -26,10 +26,8 @@ public class skollack extends Boss
         paluno = (Paluno) getWorld();
         timeElapsed = 0;
         setImage(image1);
-        
-        
-        
 
+        
     }
     public void act() 
     {
@@ -38,10 +36,10 @@ public class skollack extends Boss
             getWorld().removeObjects(getObjectsInRange(300, Particle.class));
             getWorld().removeObjects(getObjectsInRange(300, AtmosphereClouds.class));
             if (((Paluno)getWorld()).skollackHealth <= 2) {
-            blow();
+                blow();
+            }
         }
-        }
-        
+
         animate();
         changeDrift();
         drift();
@@ -52,15 +50,23 @@ public class skollack extends Boss
         if (Greenfoot.getRandomNumber(500) <= 3) {
             attack();
         }
-        
+
         if (Greenfoot.getRandomNumber(350) <= 1 && ((Paluno)getWorld()).skollackHealth <= 2) {
             blow();
         }
 
+        if (isTouching(Raku.class) && ((Paluno)getWorld()).raku1.getImage() == ((Paluno)getWorld()).raku1.swinger 
+        && ((Paluno)getWorld()).skollackHealth == 1) {
+            explode();
+        }
+        
         if (intersects(((Paluno)getWorld()).raku1) && ((Paluno)getWorld()).raku1.getImage() == ((Paluno)getWorld()).raku1.swinger
         && ((Paluno)getWorld()).skollackHealth != 1) {
             teleportAway();
         }
+
+        
+        
     }    
 
     void animate() {
@@ -117,8 +123,7 @@ public class skollack extends Boss
         getWorld().removeObject(((Paluno)getWorld()).barrier1);
         ((Paluno)getWorld()).skollackHealth -= 1;
         ((Paluno)getWorld()).bossCanBeSummoned = true;
-        
-        
+
 
         getWorld().removeObjects(getObjectsInRange(300, Magic.class));
 
@@ -190,8 +195,20 @@ public class skollack extends Boss
         getWorld().addObject(new teleportParticle(2), getX(), getY());
         getWorld().addObject(new teleportParticle(2), getX(), getY());
     }
-    
+
     void blow() {
         getWorld().addObject(new windBlast(), ((Paluno)getWorld()).skollack1.getX(), 430);
+    }
+
+    void explode() {
+        getWorld().addObject(new Beam(), getX(), getY());
+        getWorld().addObject(new Beam(), getX(), getY());
+        getWorld().addObject(new Beam(), getX(), getY());
+        getWorld().addObject(new Beam(), getX(), getY());
+        getWorld().addObject(new Beam(), getX(), getY());
+        getWorld().addObject(new Beam(), getX(), getY());
+        getWorld().addObject(new Beam(), getX(), getY());
+        getWorld().addObject(new Beam(), getX(), getY());
+        getWorld().addObject(new Beam(), getX(), getY());
     }
 }

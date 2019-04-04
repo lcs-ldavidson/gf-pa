@@ -37,7 +37,8 @@ public class Fireball extends Actor
 
         removeTouching(AtmosphereClouds.class);
         removeTouching(Particle.class);
-
+        
+        
         if (isTouching(Barrier.class)) {
             bounce();
         }

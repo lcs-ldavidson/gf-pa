@@ -12,33 +12,43 @@ public class teleportParticle extends Effects
     int drag;
     int timeElapsed;
     int size;
+    GreenfootImage explosion;
 
     public teleportParticle(int fireOrDark) {
         velocity = Greenfoot.getRandomNumber(10) + 5;
         drag = -3;
         setRotation(Greenfoot.getRandomNumber(360));
         size = Greenfoot.getRandomNumber(40) + 25;
+        explosion = new GreenfootImage("Explosion.png");
         if (fireOrDark == 1) {
-            
+
         }
         if (fireOrDark == 2) {
-            setImage("Explosion.png");
+            setImage(explosion);
         }
-        
+
     }
 
     public void act() 
     {
         move(velocity);
-        setLocation(getX(), getY() + drag);
+        if (getImage() != explosion) {
+            setLocation(getX(), getY() + drag);
+        }
         getImage().scale(size, size);
-        
+
         if (timeElapsed % 3 == 0) {
             velocity -= 1;
             drag += 1;
         }
-        
+
         timeElapsed += 1;
+
+        if (getImage() == explosion) {
+            if (timeElapsed >= 200) {
+                getWorld().removeObject(this);
+            }
+        }
 
         if (isAtEdge()) {
             getWorld().removeObject(this);
