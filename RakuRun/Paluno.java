@@ -39,9 +39,11 @@ public class Paluno extends World
         Greenfoot.setSpeed(50);
         difficulty = 0;
         endTimer = 0;
-        skollackHealth = 3;
+        skollackHealth = 1;
         skollackTimer = 0;
         portalIsOpening = false;
+        haveWon = false;
+        winTimer = 0;
 
         setPaintOrder(Beam.class, Black.class, RakuRun.class,  OpenerImage.class, skollackOpener.class, 
             FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
@@ -59,13 +61,16 @@ public class Paluno extends World
     {
 
         createTerrain();
-        createParticle();
-        spawnEnemy();
-        spawnThreats();
-        createGold();
-        createPotion();
-        createCloud();
-        
+
+        if(haveWon == false) {
+            spawnEnemy();
+            spawnThreats();
+            createGold();
+            createPotion();
+            createCloud();
+            createParticle();
+        }
+
         increaseDifficulty();
         if (skollackTimer == 1000) {
             spawnSkollack();
@@ -73,7 +78,7 @@ public class Paluno extends World
             removeObjects(getObjects(Particle.class));
             removeObjects(getObjects(AtmosphereClouds.class));
         }
-        
+
         if (skollackTimer == 745) {
             addObject(new Portal(), 350, 180);
             portalIsOpening = true;
@@ -83,7 +88,7 @@ public class Paluno extends World
             skollackTimer += 1;
         } 
         endScreen();
-        
+
         timeElapsed = timeElapsed + 1;
     }
 
@@ -156,7 +161,7 @@ public class Paluno extends World
         addObject(tentacles1, 1, 1);
         addObject(smoke1, 1, 1);
         addObject(barrier1, 1, 1);
-        
+
         addObject(new teleportParticle(1), 350, 180);
         addObject(new teleportParticle(1), 350, 180);
         addObject(new teleportParticle(1), 350, 180);
@@ -197,7 +202,7 @@ public class Paluno extends World
         addObject(new teleportParticle(1), 350, 180);
         addObject(new teleportParticle(1), 350, 180);
         addObject(new teleportParticle(1), 350, 180);
-        
+
         bossCanBeSummoned = false;
     }
 
@@ -224,7 +229,7 @@ public class Paluno extends World
             addObject(new AtmosphereClouds(), Greenfoot.getRandomNumber(700), 0);
         }
     }
-    
+
     void createRock()
     {
         if (Greenfoot.getRandomNumber(100) <= 1)

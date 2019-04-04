@@ -57,6 +57,7 @@ public class skollack extends Boss
 
         if (isTouching(Raku.class) && ((Paluno)getWorld()).raku1.getImage() == ((Paluno)getWorld()).raku1.swinger 
         && ((Paluno)getWorld()).skollackHealth == 1) {
+            ((Paluno)getWorld()).haveWon = true;
             explode();
         }
         
