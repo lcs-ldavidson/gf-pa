@@ -45,15 +45,15 @@ public class Paluno extends World
         haveWon = false;
         winTimer = 0;
 
-        setPaintOrder(Beam.class, Black.class, RakuRun.class,  OpenerImage.class, skollackOpener.class, 
-            FinalScore.class, FinalKills.class, FinalGold.class, FireHealth.class, 
-            Blade.class, Eyes.class, endSkollack.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
+        setPaintOrder(Black.class, RakuRun.class,  OpenerImage.class, skollackOpener.class, 
+            FinalScore.class, FinalKills.class, FinalGold.class, teleportParticle.class, FireHealth.class, 
+            Blade.class, FinalExplosion.class, Beam.class, Eyes.class, endSkollack.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, 
             leleHead.class, vaerminaHead.class, Interface.class, 
             AtmosphereClouds.class, Lele.class, Cloud.class, 
-            Particle.class, Magic.class, Barrier.class, teleportParticle.class, 
+            Particle.class, Magic.class, Barrier.class, 
             windBlast.class, Portal.class, skollack.class, Rex.class, Rock.class, Snake.class, 
-            Spider.class, Monster.class, TeleportEffect.class, Raku.class, Tentacles.class, Smoke.class,
+            Spider.class, Monster.class, TeleportEffect.class, hit.class, Raku.class, Tentacles.class, Smoke.class,
             Fireball.class, Dust.class, Potion.class, Gold.class, Terrain.class);
     }
 
@@ -70,6 +70,12 @@ public class Paluno extends World
             createCloud();
             createParticle();
         }
+
+        if (haveWon == true) {
+            winTimer += 1;
+        }
+
+        winScreen();
 
         increaseDifficulty();
         if (skollackTimer == 1000) {
@@ -441,7 +447,53 @@ public class Paluno extends World
 
         if (endTimer == 130) {
             addObject(new Eyes(), 350, 625);
-        }   
+        }  
+
+    }
+
+    void winScreen() {
+        if (winTimer == 75) {
+            removeObjects(getObjects(leleHead.class));
+            removeObjects(getObjects(vaerminaHead.class));
+            removeObjects(getObjects(fireGauge.class));
+            removeObjects(getObjects(fireSwirl.class));
+            removeObjects(getObjects(KiGauge.class));
+            removeObjects(getObjects(kiSwirl.class));
+            removeObjects(getObjects(FireHealth.class));
+            removeObjects(getObjects(readyFlare.class));
+            removeObjects(getObjects(kiFlare.class));
+            removeObjects(getObjects(Cloud.class));
+        }
+
+        if (winTimer == 50) {
+            addObject(new FinalGold(), 350, 110);
+        }
+
+        if (winTimer == 75) {
+            addObject(new FinalKills(), 350, 210);
+        }
+
+        if (winTimer == 80) {
+            addObject(new FinalScore(), 350, 750);
+        }
+
+        if (winTimer % 10 == 0 && winTimer <= 150 && winTimer != 0) {
+            fireBurst();
+        }
+        
+        if (winTimer == 150) {
+            addObject(new FinalExplosion(), skollack1.getX(), skollack1.getY());
+             removeObjects(getObjects(teleportParticle.class));
+        }
+
+    }
+
+    void fireBurst() {
+        addObject(new teleportParticle(2), skollack1.getX(), skollack1.getY());
+        addObject(new teleportParticle(2), skollack1.getX(), skollack1.getY());
+        addObject(new teleportParticle(2), skollack1.getX(), skollack1.getY());
+        addObject(new teleportParticle(2), skollack1.getX(), skollack1.getY());
+        addObject(new teleportParticle(2), skollack1.getX(), skollack1.getY());
     }
 
 }

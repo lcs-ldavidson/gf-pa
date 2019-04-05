@@ -319,11 +319,12 @@ public class Raku extends Actor
     public void takeDamage (int amount, boolean heal)
     {
 
-        if (getImage() != corpse) {
+        if (getImage() != corpse && ((Paluno)getWorld()).haveWon == false) {
 
             if (heal == false) 
             {
                 health = health - amount;
+                getWorld().addObject(new hit(), getX(), getY());
             } else
             {
                 health = health + amount;

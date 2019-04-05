@@ -25,7 +25,7 @@ public class Blade extends Actor
 
     public void act() 
     {
-        if (((Paluno)getWorld()).raku1.getImage() != ((Paluno)getWorld()).raku1.corpse) {
+        if (((Paluno)getWorld()).raku1.getImage() != ((Paluno)getWorld()).raku1.corpse && ((Paluno)getWorld()).haveWon == false) {
 
             if (timeElapsed >= 20) {
                 setLocation(getX(), getY() - movement);
@@ -44,6 +44,21 @@ public class Blade extends Actor
         }
 
         if (((Paluno)getWorld()).endTimer >= 100 && getY() >= 275) {
+            setLocation(getX(), getY() - 10);
+
+            if (getY() <= 275 && getRotation() == 0) {
+                stopRotating = true;
+            }
+
+            if (stopRotating == true) {
+                setRotation(0);   
+            } else {
+                turn(-15);   
+            }
+
+        }
+        
+        if (((Paluno)getWorld()).winTimer >= 75 && getY() >= 275) {
             setLocation(getX(), getY() - 10);
 
             if (getY() <= 275 && getRotation() == 0) {
