@@ -122,6 +122,7 @@ public class Paluno extends World
         }
     }
 
+    
     void spawnThreats() {
         if (difficulty >= 1) {
             spawnSpider();

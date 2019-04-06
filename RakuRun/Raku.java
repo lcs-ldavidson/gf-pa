@@ -61,59 +61,81 @@ public class Raku extends Actor
     public void act() 
     {
         if (getImage() != corpse) {
-
+            
+            // detect and take damage when at the edge of the screen
             enteredStorm();
+            // move basd on user input
             control();
+            // display number of monsters slain
             showKills();
+            //die when hit by bolt
             hitByLightning();
+            //display amount of gold collected
             showGold();
+            // collect a random amount of gold when touching bag
             collectGold(Greenfoot.getRandomNumber(100) + 1);
+            //recover a random amount of health when touching bottle
             drinkPotion(Greenfoot.getRandomNumber(12) + 1);
+            //launch fireball based on user input
             checkShoot();
+            //use ki teleport based on user input
             teleport();
+            //swing sword based on user input
             swingManagement();
+            // manage fireball stats
             fireballManagement();
+            //determine whether or not you can be hit
             vulnerabilityManagement();
+            //manage and display current health
             healthManagement();
+            //manage and activate lele based on user input
             leleManagement();
+            //manage and activate vaermina based on user input
             vaerminaManagement();
+            //get hit by skollack's magic
             hitByMagic();
+            //move backwards when touching a wind tunnel
             blownBack();
 
+            //get knocked back when hit by a monster
             if (isTouching(Monster.class)) {
                 knockBack(getOneIntersectingObject(Monster.class).getX(), getOneIntersectingObject(Monster.class).getY(), 5);
             }
-            
+            //get knocked back when hit by a rock
             if (isTouching(Rock.class)) {
                 knockBack(getOneIntersectingObject(Rock.class).getX(), getOneIntersectingObject(Rock.class).getY(), 5);
             }
-
+            //get knocked back when hit by a spider
             if (isTouching(Spider.class)) {
                 knockBack(getOneIntersectingObject(Spider.class).getX(), getOneIntersectingObject(Spider.class).getY(), 5);
             }
-
+            //get knocked back when hit by a snake
             if (isTouching(Snake.class)) {
                 knockBack(getOneIntersectingObject(Snake.class).getX(), getOneIntersectingObject(Snake.class).getY(), 5);
             }
 
         }
-
+        
+        //die when health is 0
         die();
-
+        //increase the amount of time you have been alive
         timeAlive = timeAlive + 1;
     }
 
     void hitByLightning() {
+        //if you are touching a lightning bolt and can be hit
         if (isTouching(Lightning.class) && vulnerability != 30) {
+            //change image to corpse
             setImage(corpse);
         }
     }
 
     void teleport() {
+        //check if the ki gauge is full and activate ki ability if space is pressed
         if (teleportTimer >= 510 && Greenfoot.isKeyDown("space")) {
-
+            //add the teleporting effect
             getWorld().addObject(new TeleportEffect(false), getX(), getY());
-
+            //teleport to new location and set short invincibiliity
             if (Greenfoot.isKeyDown("up")) {
                 setLocation(getX(), getY() - 400);
                 vulnerability = 0;
@@ -129,27 +151,31 @@ public class Raku extends Actor
             } else {
                 takeDamage(Greenfoot.getRandomNumber(20) + 1, true);
             }
-
+            //add the second teleporting effect
             getWorld().addObject(new TeleportEffect(true), getX(), getY());
-
+            //reset the ki gauge
             teleportTimer = 0;
 
         }
+        //fill the ki gauge
         if (teleportTimer <= 510) {
             teleportTimer += 1;   
         }
     }
 
     void healthManagement() {
+        //can't heal above 100 health
         if (health >= 101) {
             health = 100;
         }
+        //make sure health is 0 when dead
         if (getImage() == corpse) {
             health = 0;
         }   
     }
 
     void checkShoot() {
+        //shoot the fireball in desired direction
         if (Greenfoot.isKeyDown("w")) {
             launchFireball("forward");   
         } else if (Greenfoot.isKeyDown("d")) {
@@ -160,8 +186,9 @@ public class Raku extends Actor
     }
 
     void launchFireball (String shotDirection) {
+        //if the fire gauge is full
         if (launchTimer >= 254) {
-
+            //check what direction it is being shot in
             if (shotDirection == "forward") {
                 setImage("launchForward.png");
                 getWorld().addObject(new Fireball(getRotation() - 90), getX() + 20, getY() - 50);
@@ -172,15 +199,16 @@ public class Raku extends Actor
                 setImage("launchLeft.png");
                 getWorld().addObject(new Fireball(getRotation() - 180), getX() - 50, getY());
             }
-
+            //reset fire gauge
             launchTimer = 0;
 
         }
-
+        //reset
         canShoot = false;
     }
 
     void drinkPotion(int healthRegained) {
+        //if you are touching a potion, heal, remove the potion, and display heal effect
         if (isTouching(Potion.class)) {
             removeTouching(Potion.class);
             health += healthRegained;
@@ -189,6 +217,7 @@ public class Raku extends Actor
     }
 
     void collectGold(int amount) {
+        //if you are touching a bag of gold, remove the bag, add the gold to total, display amount collected, and increase vaermina's timer
         if (isTouching(Gold.class)) {
             removeTouching(Gold.class);
             gold += amount;
@@ -201,6 +230,7 @@ public class Raku extends Actor
 
     void hitByEnemy()
     {
+        //if you are touching a monster, take damage
         if (isTouching(Monster.class))
         {
             takeDamage(Greenfoot.getRandomNumber(20) + 1, false);
@@ -209,6 +239,7 @@ public class Raku extends Actor
 
     void hitBySnake()
     {
+        //if you are touching a snake, take damage
         if (isTouching(Snake.class) && timeAlive % 15 == 0)
         {
             takeDamage(Greenfoot.getRandomNumber(50) + 1, false);
@@ -217,6 +248,7 @@ public class Raku extends Actor
 
     void hitBySpider()
     {
+        //if you are touching a spider, take damage
         if (isTouching(Spider.class))
         {
             takeDamage(Greenfoot.getRandomNumber(6) + 1, false);
@@ -225,6 +257,7 @@ public class Raku extends Actor
 
     void showKills()
     {
+        //display the number of kills you have
         getWorld().showText("Kills: " + kills, 585, 50);
     }
 
