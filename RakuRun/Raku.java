@@ -263,18 +263,20 @@ public class Raku extends Actor
 
     void showGold()
     {
+        //display how much gold you have
         getWorld().showText("Gold: " + gold, 110, 45);
     }
 
     void swingManagement() {
+        //make sure you can't constantly swing
         if (swingTimer <= 50) {
             swingTimer += 1;   
         }
-
+        //turn with the swing
         if (swingTimer <= 9) {
             turn(10);
         }
-
+        //reset
         if (swingTimer == 10) {
             setRotation(0);
             setImage(run1);
@@ -282,44 +284,46 @@ public class Raku extends Actor
     }
 
     void fireballManagement() {
+        //fill the fire gauge
         if (launchTimer <= 255) {
             launchTimer += 1;
         }
-
+        //reset the animation
         if (launchTimer == 15) {
             setImage(run1);
         }
     }
 
     void vulnerabilityManagement() {
-
+        //if you are vulnerable, get hit by a monster
         if (vulnerability >= 255 && getImage() != swinger) {
             hitByEnemy();
             hitBySnake();
             hitBySpider();
         }
-
+        //increase vulnerability
         if (vulnerability <= 255) {
             vulnerability += 3;
         }
-
+        //make sure vulnerability caps at 255
         if (vulnerability >= 256) {
             vulnerability = 255;
         }   
-
+        //set the transparency to vulnerability
         getImage().setTransparency(vulnerability);
     }
 
     void leleManagement() {
+        //activate lele if LeleTimer is full
         if (leleTimer == 255 && Greenfoot.isKeyDown("q")) {
             activateLele();
         }
-
+        //if Lele is active, decrease the time and make you invulnerable
         if (leleIsActive == true) {
             vulnerability = 30;
             leleCoolDown -= 1;
         }
-
+        //end Lele's activity
         if (leleCoolDown == 0) {
             leleCoolDown = 400;
             leleIsActive = false;
@@ -327,6 +331,7 @@ public class Raku extends Actor
     }
 
     void vaerminaManagement() {
+        //activate Vaermina
         if (vaerminaTimer == 255 && Greenfoot.isKeyDown("e")) {
             activeVaermina();
         }   
@@ -334,6 +339,7 @@ public class Raku extends Actor
 
     void enteredStorm()
     {
+        // if you are out of bounds, take damage
         if ((getX() <= 10 || getX() >= 690 || getY() >= 740 || getY() <= 70) && timeAlive % 15 == 0) 
         {
             takeDamage(Greenfoot.getRandomNumber(6) + 1, false);
@@ -341,6 +347,7 @@ public class Raku extends Actor
     }
 
     void hitByMagic() {
+        //if you are hit by magic and are vulnerable, take damage
         if (isTouching(Magic.class) && vulnerability >= 200) {
             takeDamage(Greenfoot.getRandomNumber(4) + 1, false);
             if (vulnerability > 200) {
@@ -351,7 +358,7 @@ public class Raku extends Actor
 
     public void takeDamage (int amount, boolean heal)
     {
-
+        //if you aren't dead and you haven't won, take damage or heal, display health lost/gained, set vulnerability
         if (getImage() != corpse && ((Paluno)getWorld()).haveWon == false) {
 
             if (heal == false) 
@@ -373,6 +380,7 @@ public class Raku extends Actor
 
     void control()
     {
+        //control the movement up, down, left, and right
         if (Greenfoot.isKeyDown("up")) 
         {
 
@@ -435,6 +443,7 @@ public class Raku extends Actor
 
     void animate(int runSpeed)
     {
+        //animate the run cycle with the desired speed
         if (timeAlive % runSpeed == 0)
         {
 
@@ -463,12 +472,12 @@ public class Raku extends Actor
     }
 
     void die() {
-
+        //die if health is 0
         if (health <= 0)
         {
             setImage(corpse);
         }   
-
+        //move back with terrain
         if (getImage() == corpse) {
             setLocation(getX(), getY() + 5);
             health = 0;
@@ -477,14 +486,17 @@ public class Raku extends Actor
     }
 
     public int currentLaunchTimer() {
+        //unnecessary
         return launchTimer;
     }
 
     public int currentTP() {
+        //unnecessary
         return teleportTimer;
     }
 
     void swingSword() {
+        //if you can swing, swing
         if (swingTimer >= 50) {
 
             setImage(swinger);
@@ -503,14 +515,16 @@ public class Raku extends Actor
     }
 
     void activeVaermina() {
+        //heal and spawn the t-rex
         vaerminaTimer = 0;
         takeDamage(25, true);
         getWorld().addObject(new Rex(), getX(), 800);
-
+        //drain the gold
         gold -= 1000;
     }
 
     void knockBack(int x, int y, int severity) {
+        //turn towards the source and move back to simulate collision
         if (getImage() != swinger) {
             turnTowards(x, y);
             move(-severity);
@@ -519,6 +533,7 @@ public class Raku extends Actor
     }
     
     void blownBack() {
+        //move back in the wind tunnels
         if (isTouching(windBlast.class)) {
             setLocation(getX(), getY() + 4);
         }
