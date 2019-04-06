@@ -45,14 +45,15 @@ public class skollack extends Boss
         drift();
         correctPosition();
         turnTowards(((Paluno)getWorld()).raku1.getX(), ((Paluno)getWorld()).raku1.getY());
+        endPosition();
         timeElapsed += 1;
 
         if (isTouching(Raku.class) && ((Paluno)getWorld()).raku1.getImage() == ((Paluno)getWorld()).raku1.swinger 
-            && ((Paluno)getWorld()).skollackHealth == 1 && ((Paluno)getWorld()).haveWon == false) {
-                ((Paluno)getWorld()).haveWon = true;
-                explode();
-            }
-        
+        && ((Paluno)getWorld()).skollackHealth == 1 && ((Paluno)getWorld()).haveWon == false) {
+            ((Paluno)getWorld()).haveWon = true;
+            explode();
+        }
+
         if (((Paluno)getWorld()).haveWon == false) {
 
             if (Greenfoot.getRandomNumber(500) <= 3) {
@@ -63,7 +64,6 @@ public class skollack extends Boss
                 blow();
             }
 
-            
 
             if (intersects(((Paluno)getWorld()).raku1) && ((Paluno)getWorld()).raku1.getImage() == ((Paluno)getWorld()).raku1.swinger
             && ((Paluno)getWorld()).skollackHealth != 1) {
@@ -105,7 +105,9 @@ public class skollack extends Boss
     }
 
     void drift() {
-        setLocation(getX() + driftSpeed, getY());
+        if (((Paluno)getWorld()).winTimer < 60) {
+            setLocation(getX() + driftSpeed, getY());
+        }
     }
 
     void correctPosition() {
@@ -219,6 +221,13 @@ public class skollack extends Boss
         getWorld().addObject(new Beam(), getX(), getY());
         getWorld().addObject(new Beam(), getX(), getY());
 
+    }
+
+    void endPosition() {
+        if (((Paluno)getWorld()).winTimer >= 80) {
+            turnTowards(610, 125);
+            move(2);
+        }
     }
 
 }

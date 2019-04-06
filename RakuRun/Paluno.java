@@ -39,7 +39,7 @@ public class Paluno extends World
         Greenfoot.setSpeed(50);
         difficulty = 0;
         endTimer = 0;
-        skollackHealth = 1;
+        skollackHealth = 3;
         skollackTimer = 0;
         portalIsOpening = false;
         haveWon = false;
@@ -47,7 +47,8 @@ public class Paluno extends World
 
         setPaintOrder(Black.class, RakuRun.class,  OpenerImage.class, skollackOpener.class, 
             FinalScore.class, FinalKills.class, FinalGold.class, teleportParticle.class, FireHealth.class, 
-            Blade.class, FinalExplosion.class, DeathParticle.class, Beam.class, background.class,
+            Blade.class, EndPose.class, Mountains.class, 
+            FinalExplosion.class, DeathParticle.class, PixelCloud.class, Beam.class, background.class,
             Eyes.class, endSkollack.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, 
             leleHead.class, vaerminaHead.class, Interface.class, 
@@ -485,16 +486,35 @@ public class Paluno extends World
         if (winTimer < 300 && haveWon) {
             addObject(new DeathParticle(skollack1.getX(), skollack1.getY()), skollack1.getX() + Greenfoot.getRandomNumber(10) - 5, skollack1.getY() + Greenfoot.getRandomNumber(10) - 5);
             addObject(new DeathParticle(skollack1.getX(), skollack1.getY()), skollack1.getX() + Greenfoot.getRandomNumber(10) - 5, skollack1.getY() + Greenfoot.getRandomNumber(10) - 5);
-            
+
             if (timeElapsed % 3 == 0) {
                 addObject(new FinalExplosion(), skollack1.getX(), skollack1.getY());
             }
         }
-        
+
         if (winTimer == 50) {
             addObject(new background(), 350, 400);
+            addObject(new PixelCloud(), Greenfoot.getRandomNumber(500) + 100, Greenfoot.getRandomNumber(300) + 100);
+            addObject(new PixelCloud(), Greenfoot.getRandomNumber(500) + 100, Greenfoot.getRandomNumber(300) + 100);
+            addObject(new PixelCloud(), Greenfoot.getRandomNumber(500) + 100, Greenfoot.getRandomNumber(300) + 100);
+            addObject(new PixelCloud(), Greenfoot.getRandomNumber(500) + 100, Greenfoot.getRandomNumber(300) + 100);
+            addObject(new PixelCloud(), Greenfoot.getRandomNumber(500) + 100, Greenfoot.getRandomNumber(300) + 100);
+            addObject(new PixelCloud(), Greenfoot.getRandomNumber(500) + 100, Greenfoot.getRandomNumber(300) + 100);
+            addObject(new PixelCloud(), Greenfoot.getRandomNumber(500) + 100, Greenfoot.getRandomNumber(300) + 100);
+            addObject(new PixelCloud(), Greenfoot.getRandomNumber(500) + 100, Greenfoot.getRandomNumber(300) + 100);
+            addObject(new PixelCloud(), Greenfoot.getRandomNumber(500) + 100, Greenfoot.getRandomNumber(300) + 100);
+            addObject(new PixelCloud(), Greenfoot.getRandomNumber(500) + 100, Greenfoot.getRandomNumber(300) + 100);
+            addObject(new PixelCloud(), Greenfoot.getRandomNumber(500) + 100, Greenfoot.getRandomNumber(300) + 100);
+            addObject(new PixelCloud(), Greenfoot.getRandomNumber(500) + 100, Greenfoot.getRandomNumber(300) + 100);
         }
 
+        if (winTimer == 70) {
+            addObject(new EndPose(), 0, 400);
+        }
+
+        if (winTimer == 70) {
+            addObject(new Mountains(), 165, 400);
+        }
     }
 
     void fireBurst() {
