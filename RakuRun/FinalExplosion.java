@@ -11,14 +11,26 @@ public class FinalExplosion extends Effects
     int size;
 
     public FinalExplosion() {
-        size = 800;
+        size = 80;
+
     }
 
     public void act() 
     {
+        if (size == 80) {
+            turn(Greenfoot.getRandomNumber(360));
+            move(Greenfoot.getRandomNumber(150));
+        }
+
         getImage().scale(size, size);
-        if (size <= 10000) {
-            size += 90;
+
+        if (size <= 200) {
+            size += 10;
+            turn(30);
+        }
+
+        if (size >= 199) {
+            getWorld().removeObject(this);
         }
     }    
 }

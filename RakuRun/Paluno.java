@@ -47,12 +47,13 @@ public class Paluno extends World
 
         setPaintOrder(Black.class, RakuRun.class,  OpenerImage.class, skollackOpener.class, 
             FinalScore.class, FinalKills.class, FinalGold.class, teleportParticle.class, FireHealth.class, 
-            Blade.class, FinalExplosion.class, Beam.class, Eyes.class, endSkollack.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
+            Blade.class, FinalExplosion.class, DeathParticle.class, Beam.class, background.class,
+            Eyes.class, endSkollack.class, EndCloud.class, startCloud.class, kiFlare.class, readyFlare.class, kiSwirl.class, 
             fireSwirl.class, KiGauge.class, fireGauge.class, HealthDisplay.class, HealthShow.class, GoldShow.class, Lightning.class, 
             leleHead.class, vaerminaHead.class, Interface.class, 
             AtmosphereClouds.class, Lele.class, Cloud.class, 
             Particle.class, Magic.class, Barrier.class, 
-            windBlast.class, Portal.class, skollack.class, Rex.class, Rock.class, Snake.class, 
+            windBlast.class, Portal.class, skollack.class, Rex.class, Rock.class, MonsterDust.class, Snake.class, 
             Spider.class, Monster.class, TeleportEffect.class, hit.class, Raku.class, Tentacles.class, Smoke.class,
             Fireball.class, Dust.class, Potion.class, Gold.class, Terrain.class);
     }
@@ -452,7 +453,7 @@ public class Paluno extends World
     }
 
     void winScreen() {
-        if (winTimer == 75) {
+        if (winTimer == 1) {
             removeObjects(getObjects(leleHead.class));
             removeObjects(getObjects(vaerminaHead.class));
             removeObjects(getObjects(fireGauge.class));
@@ -480,10 +481,18 @@ public class Paluno extends World
         if (winTimer % 10 == 0 && winTimer <= 150 && winTimer != 0) {
             fireBurst();
         }
+
+        if (winTimer < 300 && haveWon) {
+            addObject(new DeathParticle(skollack1.getX(), skollack1.getY()), skollack1.getX() + Greenfoot.getRandomNumber(10) - 5, skollack1.getY() + Greenfoot.getRandomNumber(10) - 5);
+            addObject(new DeathParticle(skollack1.getX(), skollack1.getY()), skollack1.getX() + Greenfoot.getRandomNumber(10) - 5, skollack1.getY() + Greenfoot.getRandomNumber(10) - 5);
+            
+            if (timeElapsed % 3 == 0) {
+                addObject(new FinalExplosion(), skollack1.getX(), skollack1.getY());
+            }
+        }
         
-        if (winTimer == 150) {
-            addObject(new FinalExplosion(), skollack1.getX(), skollack1.getY());
-             removeObjects(getObjects(teleportParticle.class));
+        if (winTimer == 50) {
+            addObject(new background(), 350, 400);
         }
 
     }

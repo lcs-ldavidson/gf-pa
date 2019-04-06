@@ -100,9 +100,61 @@ public class Snake extends Threats
             if (((Paluno)getWorld()).raku1.leleTimer < 255) {
                 ((Paluno)getWorld()).raku1.leleTimer += 5;
             }
+            puff();
             getWorld().removeObject(this);
         }
 
+    }
+    
+    void puff() {
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
+        getWorld().addObject(new MonsterDust(getX(), getY()), getX() + Greenfoot.getRandomNumber(10) - 5, getY() + Greenfoot.getRandomNumber(10) - 5);
     }
 
 }
